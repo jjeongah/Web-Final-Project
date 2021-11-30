@@ -1,0 +1,72 @@
+/*for mypage.html page */
+*{
+  font-family: 'Merriweather', serif;
+  background-color: #565952;
+}
+img{
+  width:80px;
+  margin-left: 10px;
+}
+.card {
+    background-color: #565952;
+}
+.card .img-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.card:hover .img-top {
+    display: inline;
+}
+.mp{
+  margin-top: 5%;
+}
+h1{
+  color: white;
+}
+h4{
+  background-color: #aade6a;
+}
+button{
+  width:30%;
+  height: 60px;
+  margin: 3%;
+  background-color: #aade6a;
+  border-width: 0.1px;
+  border-radius: 10px;
+}
+.btn-1 {
+  letter-spacing: 0;
+  -webkit-transition: all .28s ease-in-out;
+  transition: all .28s ease-in-out;
+}
+.btn-1:hover,
+.btn-1:focus,
+.btn-1:active {
+  letter-spacing: 5px;
+}
+.btn-1:after,
+.btn-1:before {
+  border: 1px solid rgba(255, 255, 255, 0);
+  bottom: 0;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all .28s ease-in-out;
+  transition: all .28s ease-in-out;
+  width: 0;
+}
+.btn-1:hover:after,
+.btn-1:hover:before {
+  border-color: #fff;
+  -webkit-transition: width 350ms ease-in-out;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+.btn-1:hover:before {
+  bottom: auto;
+  top: 0;
+}
