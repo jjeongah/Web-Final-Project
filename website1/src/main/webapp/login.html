@@ -20,11 +20,11 @@
       </div>
       <Center><form>
         Phone number:
-        <input id= "input1" type="text" value=""><br>
+        <input id= "input1" type="text" name="userID"  value=""><br>
         Password:
-        <input id="input2" type="text" value="">
+        <input id="input2" type="text" name="userPassword" value="">
       </form>
-      <button class="btn-4" type="button" name="button" onclick="gotoreservepage()">Login</button>
+      <button class="btn-4" type="button" name="button" onclick="gotoreservepage()" method="post" action="login.jsp">Login</button>
     </div>
   </body>
    <script src="JS/index_login.js" type="text/javascript"></script>
