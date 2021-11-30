@@ -10,5 +10,6 @@
 <jsp:include page="login.html"></jsp:include>
 
 Hello! <%= new java.util.Date() %>
+
 </body>
 </html>

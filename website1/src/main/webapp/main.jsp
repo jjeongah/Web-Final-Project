@@ -9,5 +9,7 @@
 <body>
 
 <jsp:include page="main.html"></jsp:include>
+<%@ page import ="java.sql.*" %>
+
 </body>
 </html>
