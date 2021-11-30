@@ -14,7 +14,4 @@ console.log(document.getElementById("input1").value);
  else if(document.getElementById("input2").value =='' && document.getElementById("input1").value ==''){
    alert("Please enter your phone number and password!");
  }
- else{
-   location.href = "reserve.html";
- }
 }
