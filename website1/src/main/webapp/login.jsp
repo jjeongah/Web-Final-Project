@@ -22,9 +22,10 @@
       </div>
       <Center><form method="post" action="loginAction.jsp">
         Phone number:
-        <input  id= "input1" type="text" name="userName"  value=""><br>
+        <input  id= "input1" type="text" name="phoneNumber"  value=""><br>
         Password:
         <input id="input2" type="text" name="userPassword" value="">
+        <br>
         <button type="submit" class="btn-4" type="button" name="button" onclick="gotoreservepage()">Login</button>
         </form>
        </div>
