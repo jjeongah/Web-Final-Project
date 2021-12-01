@@ -24,7 +24,7 @@ $("#term2").click(function(){
 });
 
 function success(){
-  if(document.getElementById("input_name").value =='' && document.getElementById("input_num").value !=''&& document.getElementById("input_pw").value !=''){
+  /*if(document.getElementById("input_name").value =='' && document.getElementById("input_num").value !=''&& document.getElementById("input_pw").value !=''){
     alert("Please enter your name!");
   }
   else if(document.getElementById("input_num").value =='' && document.getElementById("input_name").value !=''&& document.getElementById("input_pw").value !=''){
@@ -47,7 +47,7 @@ function success(){
   }
   else{
     console.log("success");
-  }
+  }*/
 
   if(!$('#agree').is(':checked') && $('#agree2').is(':checked')){
     alert("Please consent to use of service!");
@@ -59,13 +59,13 @@ function success(){
     alert("Please consent to use of service and information!");
   }
 
-  let success_ment ="<h1>You have successfully created an account</h1>";
+  /*let success_ment ="<h1>You have successfully created an account</h1>";
   if(name_bool == true && num_bool == true && pw_bool == true && repw_bool == true && $('#agree').is(':checked') &&$('#agree2').is(':checked') ){
     console.log("success!");
     document.querySelector(".service").innerHTML = success_ment;
     document.querySelector(".background").className = "background show";
     document.getElementById('success').style.display = 'block';
-  }
+  }*/
 }
 
 let last_input;

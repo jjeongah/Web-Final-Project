@@ -45,6 +45,9 @@ public class UserDAO {
 	}	
 	
 	public int registerCheck(String phoneNumber) {
+		if(phoneNumber == null) {
+			return -2;
+		}
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String SQL = "SELECT * FROM USER WHERE phoneNumber = ?"; // 실제로 DB에 입력될 명령어를 SQL 문장으로 만듬.

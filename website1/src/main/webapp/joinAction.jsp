@@ -20,8 +20,61 @@
 <%@ page import ="java.sql.*" %>
 <% 
 	UserDAO userDAO = new UserDAO();
+	if(userDAO.registerCheck(user.getUserPassword()) == -2 /*&& userDAO.registerCheck(user.getUserName()) != -2 && userDAO.registerCheck(user.getPhoneNumber())!=2*/){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('Please enter user password!')");	
+		script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
+		script.println("</script>");
+	}
+	/*
+	else if(userDAO.registerCheck(user.getUserName()) == -2 && userDAO.registerCheck(user.getUserPassword()) != -2 && userDAO.registerCheck(user.getPhoneNumber())!=2){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('Please enter user name!')");	
+		script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
+		script.println("</script>");
+	}
+	
+	else if(userDAO.registerCheck(user.getUserName()) == -2 && userDAO.registerCheck(user.getUserPassword()) == -2 && userDAO.registerCheck(user.getPhoneNumber())!=2){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('Please enter user name and password!')");	
+		script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
+		script.println("</script>");
+	}
+	
+	else if(userDAO.registerCheck(user.getUserName()) == -2 && userDAO.registerCheck(user.getUserPassword()) != -2 && userDAO.registerCheck(user.getPhoneNumber())==2){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('Please enter user name and phone number!')");	
+		script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
+		script.println("</script>");
+	}
+	else if(userDAO.registerCheck(user.getUserName()) != -2 && userDAO.registerCheck(user.getUserPassword()) == -2 && userDAO.registerCheck(user.getPhoneNumber())==2){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('Please enter phone number and password!')");	
+		script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
+		script.println("</script>");
+	}
+	else if(userDAO.registerCheck(user.getUserName()) == -2 && userDAO.registerCheck(user.getUserPassword()) == -2 && userDAO.registerCheck(user.getPhoneNumber())==2){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('Please enter user name, phone number, password!')");	
+		script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
+		script.println("</script>");
+	}*/
+	
 	int result = userDAO.registerCheck(user.getPhoneNumber());
-	if (result == 0){ //이미존재하는 회원
+	if(result == -2 && userDAO.registerCheck(user.getUserPassword()) != -2 && userDAO.registerCheck(user.getUserName()) != -2 ){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('Please enter phone number!')");	
+		script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
+		script.println("</script>");
+	}
+	else if (result == 0){ //이미존재하는 회원
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('이미존재하는 회원')");	
