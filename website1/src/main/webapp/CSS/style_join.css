@@ -74,7 +74,7 @@ button{
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1000;
 
-  /* 숨기기 */
+  /* �닲湲곌린 */
   z-index: -1;
   opacity: 0;
 }
@@ -99,11 +99,11 @@ button{
   background-color: #ffffff;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 
-  /* 임시 지정 */
+  /* �엫�떆 吏��젙 */
   width: 400px;
   height: 500px;
 
-  /* 초기에 약간 아래에 배치 */
+  /* 珥덇린�뿉 �빟媛� �븘�옒�뿉 諛곗튂 */
   transform: translate(-50%, -40%);
 }
 

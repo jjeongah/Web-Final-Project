@@ -43,5 +43,55 @@ public class UserDAO {
 		}
 		return -2; // DB 오류 
 	}	
-
+	
+	public int registerCheck(String phoneNumber) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String SQL = "SELECT * FROM USER WHERE phoneNumber = ?"; // 실제로 DB에 입력될 명령어를 SQL 문장으로 만듬.
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  phoneNumber);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return 0; //이미 존재하는 회원
+			}
+			else {
+				return 1; //가입 가능한 회원 아이디
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs !=null) rs.close();
+				if(pstmt != null) pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return -1; // DB 오류
+	}
+	
+	/*public int register(UserDTO user) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String SQL = "INSERT INTO USER VALUES (?, ?, ?)"; // 실제로 DB에 입력될 명령어를 SQL 문장으로 만듬.
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user.getUserName());
+			pstmt.setString(2, user.getPhoneNumber());
+			pstmt.setString(3, user.getUserPassword());
+			return pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs !=null) rs.close();
+				if(pstmt != null) pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return -1;
+	}
+	*/
 }

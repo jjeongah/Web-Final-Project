@@ -26,7 +26,7 @@
         Password:
         <input id="input2" type="text" name="userPassword" value="">
         <br>
-        <button type="submit" class="btn-4" type="button" name="button" onclick="gotoreservepage()">Login</button>
+        <button type="submit" class="btn-4" name="button" onclick="gotoreservepage()">Login</button>
         </form>
        </div>
   </body>

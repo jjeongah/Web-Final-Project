@@ -1,9 +1,16 @@
 package user;
 
 public class User {
-	private String phoneNumber;
-	private String userPassword;
+	String phoneNumber;
+	String userPassword;
+	String userName;
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
