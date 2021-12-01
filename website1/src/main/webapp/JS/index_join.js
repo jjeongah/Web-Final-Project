@@ -2,7 +2,6 @@
 function gotomainpage(){
   location.href = "main.html";
 }
-
 /*functions for popup start*/
 function show() {
   document.querySelector(".background").className = "background show";
