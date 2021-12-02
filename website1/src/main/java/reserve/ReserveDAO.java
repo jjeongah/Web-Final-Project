@@ -47,25 +47,4 @@ public class ReserveDAO {
 		return infoList;
 	}
 
-	public int login(String userID, String userPassword) { // � ������ ���� ������ �α����� �õ��ϴ� �Լ�, ���ڰ����� ID�� Password�� �޾� login�� �Ǵ���.
-		String SQL = "SELECT userPassword FROM USER WHERE userID = ?"; // ������ DB�� �Էµ� ��ɾ SQL �������� ����.
-		try {
-			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1,  userID);
-			rs = pstmt.executeQuery(); // ��� ����� �޾ƿ��� ResultSet Ÿ���� rs ������ �������� ������ ����� �־��� 
-			if (rs.next()) {
-				if (rs.getString(1).contentEquals(userPassword)) {
-					return 1; // �α��� ����
-				}
-				else {
-					return 0; // ��й�ȣ ����ġ
-				}
-			}
-				return -1; // ���̵� ����
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return -2; // DB ���� 
-	}	
-
 }

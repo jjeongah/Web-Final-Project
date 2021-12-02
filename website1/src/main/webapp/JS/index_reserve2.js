@@ -15,7 +15,7 @@ const table_locker1 = document.querySelector('#locker1');
 const tab_seat = document.querySelector('#tab_seat');
 const tab_locker = document.querySelector('#tab_locker');
 
-/*
+
 function renderSeats(start_num, table_seat){
   table_seat.innerHTML = '';
   if(start_num<40){//2x5
@@ -65,7 +65,7 @@ function renderLockers(){
     }
     table_locker1.append(tr);
   }
-}*/
+}
 
 // initialize seat content and locker content
 //renderSeats(1, table_seat1);
@@ -73,7 +73,7 @@ function renderLockers(){
 //renderSeats(21, table_seat3);
 //renderSeats(31, table_seat4);
 //renderSeats(41, table_seat5);
-grey_background.hide();
+//grey_background.hide();
 $('.grey_background').hide();
 $('#locker_content').hide();
 $('#reserve_popup_content').hide();
@@ -171,13 +171,18 @@ function reserve_seat_hours(hours){
 
 }
 
+
+var user_phone_num;
 //local storage로부터 가져오기
 function getFromLocalStorage() {
-  const reference = localStorage.getItem('tasks');
+  const reference = localStorage.getItem('phone_num');
   // if reference exists
   if (reference) {
     // converts back to array and store it in todos array
-    tasks = JSON.parse(reference);
-    renderTasks(tasks);
+    user_phone_num = reference;
+	console.log(user_phone_num);
   }
+ 	return user_phone_num;
 }
+
+getFromLocalStorage();

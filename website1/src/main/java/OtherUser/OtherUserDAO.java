@@ -28,12 +28,10 @@ public class OtherUserDAO {
 
 	public List<OtherUser> getAllUsers() {
 		String sqlquery = "SELECT * FROM studycafe.users;";
+		List<OtherUser> list = new ArrayList<OtherUser>();
 		try{
 	    	 Statement st = conn.prepareStatement(sqlquery);
 	    	 ResultSet rs = st.executeQuery(sqlquery);
-	    	 System.out.println("========");
-	    	 System.out.println(rs);
-	    	 List<OtherUser> list = new ArrayList<OtherUser>();
 	    	 while (rs.next()) {
 	    		OtherUser otherUser = new OtherUser();
 	    		otherUser.setUserName(rs.getString(1));
@@ -43,16 +41,12 @@ public class OtherUserDAO {
 	    		otherUser.setSeatId(rs.getInt(5));
 	    		otherUser.setLockerId(rs.getInt(6));
 	    		otherUser.setTimes(rs.getTimestamp(7), rs.getTimestamp(8));
-	    		System.out.println("haha");
-	    		System.out.println(otherUser.getuserName());
-	    		System.out.println(otherUser.getLockerId());
-	    		System.out.println(otherUser.getSeatId());
 	    		list.add(otherUser);
 	    	}
 	    	 return list;
 	       }catch (SQLException s){
 	    	 System.out.println("SQL statement is not executed!");
-	    	 return null;
+	    	 return list;
 	      }
 	}	
 }
