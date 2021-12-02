@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,4 +50,44 @@ public class OtherUserDAO {
 	    	 return list;
 	      }
 	}	
+	
+	public OtherUser getOneUser(String userPhoneNumber) {
+		String sqlquery = "SELECT * FROM studycafe.users WHERE phoneNumber=?;";
+		OtherUser otherUser = null;
+		try{
+			pstmt = conn.prepareStatement(sqlquery);
+			pstmt.setString(1,  userPhoneNumber);
+			rs = pstmt.executeQuery(); 
+			if (rs.next()) {
+				otherUser = new OtherUser(rs.getString(1), rs.getString(2), rs.getString(3),
+						rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getTimestamp(7),  rs.getTimestamp(8));
+			}
+			return otherUser;
+	       }catch (SQLException s){
+	    	 System.out.println("SQL statement is not executed!");
+	    	 return null;
+	      }
+	}	
+	
+	public void returnSeat(String userPhoneNumber) {
+		String SQL = "UPDATE studycafe.users SET seatId=0 WHERE (phoneNumber = ?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  userPhoneNumber);
+			int i= pstmt.executeUpdate(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void returnLocker(String userPhoneNumber) {
+		String SQL = "UPDATE studycafe.users SET lockerId=0 WHERE (phoneNumber = ?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  userPhoneNumber);
+			int i= pstmt.executeUpdate(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

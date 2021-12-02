@@ -1,6 +1,6 @@
 /*for mypage.html page */
 function tomanagepage(){
-  location.href = "manage.html";
+  location.href = "manage.jsp";
 }
 
 function tofeepage(){
@@ -8,5 +8,5 @@ function tofeepage(){
 }
 
 function toreservepage(){
-  location.href = "reserve.html";
+  location.href = "reserve.jsp";
 }

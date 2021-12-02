@@ -33,9 +33,11 @@
       <button type="button" name="button" onclick="logout()" class="btn-4 green_button">
         logout
       </button>
-      <button type="button" name="button" onclick="gotomypage()" class="btn-4 green_button">
-        my page
-      </button>
+      <form method="post" action="mypage.jsp">
+      	<input type="text" name="phoneNumber"  value="<%= my_phone_number %>" style="display:none;">
+        <button type="submit" name="button" onclick="gotomypage();
+       	 " class="btn-4 green_button">my page</button>
+      </form>
     </div>
 
     <!-- tab -->
@@ -66,20 +68,26 @@
         	  if(reserve.reserveSeats.contains(1+row_num*2+col_num)){
         		  if(reserve.getMyInfo().getSeatId()==1+row_num*2+col_num){
         			  %>
-        			  <td class="my" data-key="<%=1+row_num*2+col_num %>">
+        			  <td class="my" data-key="<%=1+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(1+row_num*2+col_num);%>
+		}">
         	 			<%=1+row_num*2+col_num %>
         	 		</td>
         			  <%
         		  }else{
         	 %>
-        	 		<td class="occupied" data-key="<%=1+row_num*2+col_num %>">
+        	 		<td class="occupied" data-key="<%=1+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(1+row_num*2+col_num);%>
+		}">
         	 			<%=1+row_num*2+col_num %>
         	 		</td>
         	 <%
         	 }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=1+row_num*2+col_num %>">
+        		   <td class="available" data-key="<%=1+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(1+row_num*2+col_num);%>
+		}">
         	 			<%=1+row_num*2+col_num %>
         	 		</td>
         		<%
@@ -105,21 +113,27 @@
         		  System.out.println(my_phone_number);
         		  if(reserve.getMyInfo().getSeatId()==11+row_num*2+col_num){
         	 %>
-        			 <td class="my" data-key="<%=11+row_num*2+col_num %>">
+        			 <td class="my" data-key="<%=11+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(11+row_num*2+col_num);%>
+		}">
         	 			<%=11+row_num*2+col_num %>
         	 		</td>
         			  <%
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=11+row_num*2+col_num %>">
+        	 		<td class="occupied" data-key="<%=11+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(11+row_num*2+col_num);%>
+		}">
         	 			<%=11+row_num*2+col_num %>
         	 		</td>
         	 <%
         		  }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=11+row_num*2+col_num %>">
+        		   <td class="available" data-key="<%=11+row_num*2+col_num %>"  onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(11+row_num*2+col_num);%>
+		}">
         	 			<%=11+row_num*2+col_num %>
         	 		</td>
         		<%
@@ -144,21 +158,27 @@
         	  if(reserve.reserveSeats.contains(21+row_num*2+col_num)){
         	 if(reserve.getMyInfo().getSeatId()==21+row_num*2+col_num){
         	 %>
-        			  <td class="my" data-key="<%=21+row_num*2+col_num %>">
+        			  <td class="my" data-key="<%=21+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(21+row_num*2+col_num);
+			        			  System.out.println("hhhh");%>
+		}">
         	 			<%=21+row_num*2+col_num %>
         	 		</td>
         			  <%
-        			  System.out.println("hhhh");
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=21+row_num*2+col_num %>">
+        	 		<td class="occupied" data-key="<%=21+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(21+row_num*2+col_num);%>
+		}">
         	 			<%=21+row_num*2+col_num %>
         	 		</td>
         	 <%
         		  }}else{
         		%>
-        		   <td class="available" data-key="<%=21+row_num*2+col_num %>">
+        		   <td class="available" data-key="<%=21+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(21+row_num*2+col_num);%>
+		}">
         	 			<%=21+row_num*2+col_num %>
         	 		</td>
         		<%
@@ -184,14 +204,19 @@
         	  if(reserve.reserveSeats.contains(31+row_num*2+col_num)){
         		  if(reserve.getMyInfo().getSeatId()==31+row_num*2+col_num){
         	        	 %>
-        	        			  <td class="my" data-key="<%=31+row_num*2+col_num %>">
-        	        	 			<%=31+row_num*2+col_num %>
+        	        			  <td class="my" data-key="<%=31+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(31+row_num*2+col_num);%>
+		}"><form method="post" action="loginAction.jsp">
+        <button type="submit" class="btn-4" name="button" onclick="gotoreservepage()"><%=31+row_num*2+col_num %></button>
+        </form>
         	        	 		</td>
         	        			  <%
         	        			  }
         	        		  else{
         	        	 %>
-        	        	 		<td class="occupied" data-key="<%=31+row_num*2+col_num %>">
+        	        	 		<td class="occupied" data-key="<%=31+row_num*2+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(31+row_num*2+col_num);%>
+		}">
         	        	 			<%=31+row_num*2+col_num %>
         	        	 		</td>
         	        	 <%
@@ -199,7 +224,13 @@
         	  }else{
         		%>
         		   <td class="available" data-key="<%=31+row_num*2+col_num %>">
-        	 			<%=31+row_num*2+col_num %>
+        	 			<form method="post" action="reserveAction.jsp">
+        	<button type="submit" class="btn-4" name="button" onclick="
+        	<%
+       		System.out.println("haha");
+    		request.setAttribute("clicked_seatId",31+row_num*2+col_num);
+        	%>"><%=31+row_num*2+col_num %></button>
+        </form>
         	 		</td>
         		<%
         	  	}
@@ -225,22 +256,29 @@
         	  if(reserve.reserveSeats.contains(41+col_num)){
         	 if(reserve.getMyInfo().getSeatId()==41+row_num*2+col_num){
         	 %>
-        			  <td class="my" data-key="<%=41+row_num*2+col_num %>">
-        	 			<%=41+row_num*2+col_num %>
+        			  <td class="my" data-key="<%=41+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(41+row_num*2+col_num);%>
+		}">
+        	 			<%=41+col_num %>
         	 		</td>
         			  <%
-        			  System.out.println(reserve.getMyInfo().getSeatId());
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=41+row_num*2+col_num %>">
-        	 			<%=41+row_num*2+col_num %>
+        	 		<td class="occupied" data-key="<%=41+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(41+row_num*2+col_num);%>
+		}">
+        	 			
+        	 			<%=41+col_num %>
         	 		</td>
         	 <%
         		  }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=41+col_num %>">
+        		   <td class="available" data-key="<%=41+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachSeat(41+row_num*2+col_num);%>
+		}">
+        	 			
         	 			<%=41+col_num %>
         	 		</td>
         		<%
@@ -285,21 +323,28 @@
         	  if(reserve.reserveLockers.contains(1+row_num*5+col_num)){
         		  if(reserve.getMyInfo().getLockerId()==1+row_num*5+col_num){
         	 %>
-        			 <td class="my" data-key="<%=1+row_num*5+col_num %>">
+        			 <td class="my" data-key="<%=1+row_num*5+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachLocker(1+row_num*5+col_num);%>
+		}">
+        	 			
         	 			<%=1+row_num*5+col_num %>
         	 		</td>
         			  <%
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=1+row_num*5+col_num %>">
+        	 		<td class="occupied" data-key="<%=1+row_num*5+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachLocker(1+row_num*5+col_num);%>
+		}">
         	 			<%=1+row_num*5+col_num %>
         	 		</td>
         	 <%
         		  }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=1+row_num*5+col_num %>">
+        		   <td class="available" data-key="<%=1+row_num*5+col_num %>" onclick="function clickEachSeat(){
+			<%reserve.clickEachLocker(1+row_num*5+col_num);%>
+		}">
         	 			<%=1+row_num*5+col_num %>
         	 		</td>
         		<%
@@ -336,21 +381,33 @@
       </button>
       <span class="reserve_popup_content_title">Reserve 10th seat</span>
       <div class="reserve_popup_grid">
-        <button type="button" name="button" onclick="reserve_seat_hours(2)">
+        <button type="button" name="button" onclick="reserve_seat_hours(2); function reserveInDB(){
+            <%
+            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),3000,reserve.clicked_seatId, 2);
+            %>
+            };">
           <span>2 hours</span>
           <span>3000\</span>
         </button>
-        <button type="button" name="button" onclick="reserve_seat_hours(3)">
+        <button type="button" name="button" onclick="reserve_seat_hours(3); function reserveInDB(){
+            <%
+            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),4000,reserve.clicked_seatId, 3);
+            %>
+            };">
           <span>3 hours</span>
           <span>4000\</span>
         </button>
-        <button type="button" name="button" onclick="reserve_seat_hours(4)">
+        <button type="button" name="button" onclick="reserve_seat_hours(4); function reserveInDB(){
+            <%
+            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),5000,reserve.clicked_seatId, 4);
+            %>
+            };">
           <span>4 hours</span>
           <span>5000\</span>
         </button>
         <button type="button" name="button" onclick="reserve_seat_hours(5); function reserveInDB(){
             <%
-            System.out.println("hello pleasessskkkkkkk");
+            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),6000,reserve.clicked_seatId, 5);
             %>
             };">
           <span>5 hours</span>

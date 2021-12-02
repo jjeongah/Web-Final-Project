@@ -33,6 +33,12 @@ button{
   border-width: 0.1px;
   border-radius: 10px;
 }
+.button_noback{
+background-color: transparent !important;
+  border-width: 0;
+  border-radius: 0;
+  margin: 0;
+}
 h1{
   color:white;
 }
@@ -40,6 +46,9 @@ h4{
   color:white;
 }
 h5{
+  color:white;
+}
+h6{
   color:white;
 }
 table {

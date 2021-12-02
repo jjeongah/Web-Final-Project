@@ -3,7 +3,7 @@ function logout(){
   location.href = "main.html";
 }
 function gotomypage(){
-  location.href = "mypage.html";
+  location.href = "mypage.jsp";
 }
 
 const table_seat1 = document.querySelector('#seat1');
@@ -168,7 +168,7 @@ document.querySelector('#locker_content').addEventListener('click', function(eve
 //reserve ##hours
 function reserve_seat_hours(hours){
   console.log(hours);
-
+hidePopup('reserve_popup_content');
 }
 
 

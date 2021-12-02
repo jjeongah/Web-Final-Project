@@ -29,6 +29,26 @@ public class OtherUser {
 		this.seatEndTime = seatEndTime;
 	}
 	
+	public Boolean checkValidSeat() {
+		Timestamp currenttimestamp = new Timestamp(System.currentTimeMillis());
+		if(seatId==0) {
+			return false;
+		}else if(seatEndTime==null) {
+			return false;
+		}
+		else if(seatEndTime.before(currenttimestamp)) {
+			return false;
+		}
+		return true;
+	}
+	
+	public Boolean checkValidLocker() {
+		if(lockerId==0) {
+			return false;
+		}
+		return true;
+	}
+	
 	public String getuserName() {
 		return userName;
 	}

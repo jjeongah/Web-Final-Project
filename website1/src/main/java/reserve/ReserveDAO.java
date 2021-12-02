@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ReserveDAO {
 	private Connection conn;
@@ -45,6 +48,52 @@ public class ReserveDAO {
 			e.printStackTrace();
 		}
 		return infoList;
+	}
+	
+	public int reserveSeat(String userPhoneNumber,int userChargedFee,int neededFee, int reserveSeatId, int reserveTime) {
+		if(userChargedFee<neededFee) {
+			return -1;
+		}
+		
+		java.util.Date date = new Date();
+		long time = date.getTime();
+		Timestamp start = new Timestamp(time);
+		//여기까지가 Date를 Timestamp로 전환하는 과정
+		 
+		//이제 Timestamp에 계산하기, 3일을 더해보자.
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(start);
+		cal.add(Calendar.HOUR, reserveTime);
+		Timestamp end = new Timestamp(time);
+		end.setTime(cal.getTime().getTime());
+		
+		String SQL = "UPDATE studycafe.users SET seatId=?, seatStartTime=?, seatEndTime=? WHERE (phoneNumber = ?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,  reserveSeatId);
+			pstmt.setTimestamp(2,  start);
+			pstmt.setTimestamp(3,  end);
+			pstmt.setString(4,  userPhoneNumber);
+			int i= pstmt.executeUpdate(); 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+		return 1;
+	}
+	
+	public void reserveLocker(String userPhoneNumber, int reserveLockerId) {
+		String SQL = "UPDATE studycafe.users SET lockerId=? WHERE (phoneNumber = ?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,  reserveLockerId);
+			pstmt.setString(2,  userPhoneNumber);
+			int i= pstmt.executeUpdate(); 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

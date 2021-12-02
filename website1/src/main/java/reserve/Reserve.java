@@ -16,6 +16,8 @@ public class Reserve {
 	//나의 정보 저장
 	private OtherUser myInfo;
 	public ReserveDAO reserveDAO;
+	public int clicked_seatId=0;
+	public int clicked_lockerId=0;
 	
 	public Reserve(List<OtherUser> reserveInfo, String myPhoneNumber) {
 		reserveDAO = new ReserveDAO();
@@ -73,6 +75,14 @@ public class Reserve {
 	}
 	public OtherUser getMyInfo(){
 		return myInfo;
+	}
+	
+	public void clickEachSeat(int clicked_seatId){
+		System.out.println(clicked_seatId);
+		this.clicked_seatId = clicked_seatId;
+	}
+	public void clickEachLocker(int clicked_lockerId){
+		this.clicked_lockerId = clicked_lockerId;
 	}
 	
 }
