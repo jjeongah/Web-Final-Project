@@ -3,7 +3,7 @@ function logout(){
   location.href = "main.html";
 }
 function gotomypage(){
-  location.href = "mypage.html";
+  location.href = "mypage.jsp";
 }
 
 const table_seat1 = document.querySelector('#seat1');
@@ -15,7 +15,7 @@ const table_locker1 = document.querySelector('#locker1');
 const tab_seat = document.querySelector('#tab_seat');
 const tab_locker = document.querySelector('#tab_locker');
 
-/*
+
 function renderSeats(start_num, table_seat){
   table_seat.innerHTML = '';
   if(start_num<40){//2x5
@@ -65,7 +65,7 @@ function renderLockers(){
     }
     table_locker1.append(tr);
   }
-}*/
+}
 
 // initialize seat content and locker content
 //renderSeats(1, table_seat1);
@@ -73,7 +73,7 @@ function renderLockers(){
 //renderSeats(21, table_seat3);
 //renderSeats(31, table_seat4);
 //renderSeats(41, table_seat5);
-grey_background.hide();
+//grey_background.hide();
 $('.grey_background').hide();
 $('#locker_content').hide();
 $('#reserve_popup_content').hide();
@@ -103,11 +103,21 @@ $('#tab_locker').click(function(){
 function showPopup(content_name, seat_num, todo, type){
   //todo: "Reserve" or "Return"
   //type: "seat" or "locker"
-  //reserve_popup_content_title
   $('.grey_background').show();
   $('#'+content_name).show();
   if(seat_num != null){
     document.querySelector('.'+content_name+'_title').innerHTML = `${todo} ${seat_num}th ${type}`;
+	console.log(seat_num);
+	if(content_name=='reserve_popup_content'){//click available seat
+		document.getElementById(content_name+'2_id').value = seat_num;
+	}else if(content_name=='reserve_locker_popup_content'){//click available locker
+		document.getElementById(content_name+'_id').value = seat_num;
+	}
+	if(todo=="Return" && type=="seat"){
+		document.getElementById(content_name+'_title_form').action = "./functions/returnSeatAction.jsp";
+	}else if(todo=="Return" && type=="locker"){
+		document.getElementById(content_name+'_title_form').action = "./functions/returnLockerAction.jsp";
+	}
   }
 }
 
@@ -168,16 +178,21 @@ document.querySelector('#locker_content').addEventListener('click', function(eve
 //reserve ##hours
 function reserve_seat_hours(hours){
   console.log(hours);
-
+hidePopup('reserve_popup_content');
 }
 
+
+var user_phone_num;
 //local storage로부터 가져오기
 function getFromLocalStorage() {
-  const reference = localStorage.getItem('tasks');
+  const reference = localStorage.getItem('phone_num');
   // if reference exists
   if (reference) {
     // converts back to array and store it in todos array
-    tasks = JSON.parse(reference);
-    renderTasks(tasks);
+    user_phone_num = reference;
+	console.log(user_phone_num);
   }
+ 	return user_phone_num;
 }
+
+getFromLocalStorage();

@@ -395,7 +395,10 @@
       </button>
       <span class="return_popup_content_title">Return 10th seat</span>
       <div class="popup_grid">
-        <button type="button" class="btn btn-primary return_btn">return</button>
+      	<form action="./functions/returnSeatAction.jsp" method="post" id="return_popup_content_title_form">
+             <input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
+             <button type="submit" class="btn btn-primary return_btn">return</button>
+        </form>
         <button type="button" class="btn btn-secondary close_btn" id="reserve_close_btn">
           close
         </button>
@@ -412,7 +415,6 @@
       		<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
         	<input id="reserve_locker_popup_content_id" type="number" name="reserveLockerId" style="display:none;">
         	<button type="submit" class="btn btn-primary return_btn">reserve</button>
-        	</button>
         </form>
         <button type="button" class="btn btn-secondary close_btn" id="reserve_close_btn">
           close
@@ -422,7 +424,7 @@
 
 
     <!-- JS -->
-    <script src="JS/index_reserve3.js" type="text/javascript"></script>
+    <script src="JS/index_reserve.js" type="text/javascript"></script>
 
 </body>
 </html>
