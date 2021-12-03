@@ -33,10 +33,13 @@
       <button type="button" name="button" onclick="logout()" class="btn-4 green_button">
         logout
       </button>
-      <form method="post" action="mypage.jsp">
+      <button type="button" name="button" onclick="window.location.reload()" class="btn-4 green_button">
+        reload page
+      </button>
+      <form method="post" action="mypage.jsp" class="btn-4 green_button">
       	<input type="text" name="phoneNumber"  value="<%= my_phone_number %>" style="display:none;">
-        <button type="submit" name="button" onclick="gotomypage();
-       	 " class="btn-4 green_button">my page</button>
+        <button type="submit" name="button" onclick="gotomypage();"
+        class="simple_button">my page</button>
       </form>
     </div>
 
@@ -346,7 +349,7 @@
         	<input type="number" name="neededFee"  value="<%= 3000 %>" style="display:none;">
         	<button type="submit" name="button" onclick="reserve_seat_hours(2)">
           	<span>2 hours</span>
-          	<span>3000\</span>
+          	<span>3000won</span>
         	</button>
         </form>
         <form action="./functions/reserveSeatAction.jsp" method="post">
@@ -357,7 +360,7 @@
         	<input type="number" name="neededFee"  value="<%= 4000 %>" style="display:none;">
         	<button type="submit" name="button" onclick="reserve_seat_hours(3)">
           	<span>3 hours</span>
-          	<span>4000\</span>
+          	<span>4000won</span>
         	</button>
         </form>
         <form action="./functions/reserveSeatAction.jsp" method="post">
@@ -368,7 +371,7 @@
         	<input type="number" name="neededFee"  value="<%= 5000 %>" style="display:none;">
         	<button type="submit" name="button" onclick="reserve_seat_hours(4)">
           	<span>4 hours</span>
-          	<span>5000\</span>
+          	<span>5000won</span>
         	</button>
         </form>
         <form action="./functions/reserveSeatAction.jsp" method="post">
@@ -379,7 +382,7 @@
         	<input type="number" name="neededFee"  value="<%= 6000 %>" style="display:none;">
         	<button type="submit" name="button" onclick="reserve_seat_hours(5)">
           	<span>5 hours</span>
-          	<span>6000\</span>
+          	<span>6000won</span>
         	</button>
         </form>
       </div>

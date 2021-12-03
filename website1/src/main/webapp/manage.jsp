@@ -19,12 +19,9 @@
   </head>
   <body>
   <% 
-  if(otheruser.getPhoneNumber()==""){
-	  System.out.println("null");
-  }
   OtherUserDAO otherUserDAO = new OtherUserDAO(); 
   otheruser = otherUserDAO.getOneUser(otheruser.getPhoneNumber());
-  System.out.println("kiki"+otheruser.getPhoneNumber());%>
+  %>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
@@ -32,7 +29,7 @@
       <div class="card">
       	<form method="post" action="mypage.jsp">
       		<input type="text" name="phoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
-      		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img src=".\img\arrow.png" alt="no_img" onclick="tomypage()"></button>
+      		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img class="img-down" src=".\img\arrow.png" alt="no_img" onclick="tomypage()"></button>
       		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="tomypage()"></button>
      	</form> 
       </div>
@@ -61,7 +58,7 @@
                   		<input type="text" name="userPhoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
                   		<button type="submit" name="button">Return Seat</button>
                   	</form>
-                  	<button type="button" name="button">Extend</button>
+                  	<button type="button" name="button" id="extendTime">Extend</button>
                   </td>
                 </tr>
               </table>
@@ -99,6 +96,68 @@
         </div><!--second table!-->
       </div>
       </center>
+    </div>
+    
+    <!-- pop up -->
+    <div class="reserve_popup_content popup" id="reserve_popup_content">
+      <button type="button" class="close_btn close" aria-label="Closename">
+        <span aria-hidden="true" class="close_btn">&times;</span>
+      </button>
+      <span class="reserve_popup_content_title">Extend time for <%=otheruser.getSeatId() %>th seat</span>
+      <div class="reserve_popup_grid">
+        <form action="./functions/extendSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content1_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 1 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= otheruser.getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 1000 %>" style="display:none;">
+        	<input type="text" name="seatEndTime"  value="<%= otheruser.getSeatEndTime().toString() %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(1)">
+          	<span>1 hours</span>
+          	<span>1000won</span>
+        	</button>
+        </form>
+        <form action="./functions/extendSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content2_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 2 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= otheruser.getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 2000 %>" style="display:none;">
+        	<input type="text" name="seatEndTime"  value="<%= otheruser.getSeatEndTime().toString() %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(2)">
+          	<span>2 hours</span>
+          	<span>2000won</span>
+        	</button>
+        </form>
+        <form action="./functions/extendSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content3_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 3 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= otheruser.getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 3000 %>" style="display:none;">
+        	<input type="text" name="seatEndTime"  value="<%= otheruser.getSeatEndTime().toString() %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(3)">
+          	<span>3 hours</span>
+          	<span>3000won</span>
+        	</button>
+        </form>
+        <form action="./functions/extendSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content4_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 4 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= otheruser.getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 4000 %>" style="display:none;">
+        	<input type="text" name="seatEndTime"  value="<%= otheruser.getSeatEndTime().toString() %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(4)">
+          	<span>4 hours</span>
+          	<span>4000won</span>
+        	</button>
+        </form>
+      </div>
+      <button type="button" class="btn btn-secondary close_btn" id="close_btn"
+      style="margin-right: 10px;">
+        close
+      </button>
     </div>
   </body>
    <script src="JS/index_manage.js" type="text/javascript"></script>

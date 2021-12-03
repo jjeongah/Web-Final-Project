@@ -8,18 +8,18 @@
 <jsp:setProperty name="reservedao" property="userPhoneNumber" />
 <jsp:setProperty name="reservedao" property="userChargedFee" />
 <jsp:setProperty name="reservedao" property="neededFee" />
+<jsp:setProperty name="reservedao" property="seatEndTime" />
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>reserveSeatAction</title>
+<title>extendSeatAction</title>
 </head>
 <body>
 	<% 
-		System.out.println("in reserveSeatAction.jsp");
-		int i= reservedao.reserveSeat(reservedao.getUserPhoneNumber(),reservedao.getUserChargedFee(),reservedao.getNeededFee(),
-				reservedao.getReserveSeatId(), reservedao.getReserveSeatTimeNumber());
+		int i= reservedao.extendSeat(reservedao.getUserPhoneNumber(),reservedao.getUserChargedFee(),reservedao.getNeededFee(),
+				reservedao.getReserveSeatId(), reservedao.getReserveSeatTimeNumber(), reservedao.getSeatEndTime());
 		if(i==-1){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -30,7 +30,7 @@
 		else{
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('해당 좌석을 예약했습니다.')");
+			script.println("alert('연장이 완료되었습니다.')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

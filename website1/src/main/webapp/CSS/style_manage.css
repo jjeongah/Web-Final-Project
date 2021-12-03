@@ -1,5 +1,5 @@
 /*for manage.html page */
-*{
+body{
   font-family: 'Merriweather', serif;
   background-color: #565952;
 }
@@ -10,12 +10,22 @@ img{
 .card {
     background-color: #565952;
 }
+.card .img-down{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
 .card .img-top {
     display: none;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 99;
+}
+.card:hover .img-down {
+    display: none;
 }
 .card:hover .img-top {
     display: inline;
@@ -65,4 +75,81 @@ th, td {
 }
 .nocolor{
   background-color: inherit;
+}
+
+.empty{
+  color: transparent;
+}
+
+/* popup */
+.popup{
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+
+.popup > span{
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.close_btn{
+  /* x button */
+  align-self: flex-end;
+  margin: 0 3px 0 3px;
+}
+
+.reserve_popup_grid{
+  margin-top: 20px;
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.reserve_popup_grid >form> button{
+  border: 0;
+  margin: 0;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #aade6a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.reserve_popup_grid >form> button:hover{
+  top: -2px;
+  box-shadow: 0px 0px 10px rgb(180,210,248);
+  background-color: #719e44;
+}
+
+.reserve_popup_grid >form> button > span:nth-child(1){
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.reserve_popup_grid >form> button > span:nth-child(2){
+  font-size: 14px;
+}
+
+.popup_grid{
+  width: 200px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +19,7 @@ public class ReserveDAO {
 	private String userPhoneNumber;
 	private int userChargedFee;
 	private int neededFee;
+	private String seatEndTime;
 	
 	private int reserveLockerId;
 	public ReserveDAO() {
@@ -116,6 +118,40 @@ public class ReserveDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public int extendSeat(String userPhoneNumber,int userChargedFee,int neededFee, 
+			int reserveSeatId, int reserveTime, String seatEndTime) {
+		if(userChargedFee<neededFee) {
+			return -1;
+		}
+		Timestamp seatEndTimeStamp = null;
+		try {
+		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+		    Date parsedDate = dateFormat.parse(seatEndTime);
+		    seatEndTimeStamp = new Timestamp(parsedDate.getTime());
+		} catch(Exception e) { //this generic but you can control another types of exception
+		    // look the origin of excption 
+		}
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(seatEndTimeStamp);
+		cal.add(Calendar.HOUR, reserveTime);
+		Timestamp end = seatEndTimeStamp;
+		end.setTime(cal.getTime().getTime());
+		
+		String SQL = "UPDATE studycafe.users SET seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setTimestamp(1,  end);
+			pstmt.setInt(2,  userChargedFee-neededFee);
+			pstmt.setString(3,  userPhoneNumber);
+			int i= pstmt.executeUpdate(); 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+		return 1;
+	}
 
 	public String getUserPhoneNumber() {
 		return userPhoneNumber;
@@ -147,6 +183,14 @@ public class ReserveDAO {
 
 	public void setReserveLockerId(int reserveLockerId) {
 		this.reserveLockerId = reserveLockerId;
+	}
+
+	public String getSeatEndTime() {
+		return seatEndTime;
+	}
+
+	public void setSeatEndTime(String seatEndTime) {
+		this.seatEndTime = seatEndTime;
 	}
 
 }

@@ -25,9 +25,9 @@ public class Reserve {
 		reserveSeats = new HashSet<Integer>();
 		reserveLockers = new HashSet<Integer>();
 		for(int i=0;i<reserveInfo.size();i++) {
-			if(reserveInfo.get(i).getSeatId()!=0) {
+			if(reserveInfo.get(i).checkValidSeat()==true) {
 				reserveSeats.add(reserveInfo.get(i).getSeatId());
-			}if(reserveInfo.get(i).getLockerId()!=0) {
+			}if(reserveInfo.get(i).checkValidLocker()==true) {
 				reserveLockers.add(reserveInfo.get(i).getLockerId());
 			}
 		} 
@@ -47,9 +47,9 @@ public class Reserve {
 		reserveSeats = new HashSet<Integer>();
 		reserveLockers = new HashSet<Integer>();
 		for(int i=0;i<reserveInfo.size();i++) {
-			if(reserveInfo.get(i).getSeatId()!=0) {
+			if(reserveInfo.get(i).checkValidSeat()==true) {
 				reserveSeats.add(reserveInfo.get(i).getSeatId());
-			}if(reserveInfo.get(i).getLockerId()!=0) {
+			}if(reserveInfo.get(i).checkValidLocker()==true) {
 				reserveLockers.add(reserveInfo.get(i).getLockerId());
 			}
 		} 
