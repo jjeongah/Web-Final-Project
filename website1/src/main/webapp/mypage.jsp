@@ -21,6 +21,8 @@
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
+    <%
+    System.out.println("hh111"+otheruser.getPhoneNumber()); %>
     <div>
       <div class="card">
         <img src=".\img\arrow.png" alt="no_img" onclick="toreservepage()">

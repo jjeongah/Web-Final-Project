@@ -19,23 +19,28 @@
   </head>
   <body>
   <% 
+  if(otheruser.getPhoneNumber()==""){
+	  System.out.println("null");
+  }
   OtherUserDAO otherUserDAO = new OtherUserDAO(); 
-  otheruser = otherUserDAO.getOneUser(otheruser.getPhoneNumber());%>
+  otheruser = otherUserDAO.getOneUser(otheruser.getPhoneNumber());
+  System.out.println("kiki"+otheruser.getPhoneNumber());%>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
     <div>
       <div class="card">
-      	<form method="post" action="mypage.jsp">
+      	<%-- <form method="post" action="mypage.jsp">
       		<input type="text" name="phoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
       		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img src=".\img\arrow.png" alt="no_img" onclick="tomypage()"></button>
       		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="tomypage()"></button>
-     	</form>
-        <!-- <img src=".\img\arrow.png" alt="no_img" onclick="tomypage()">
-        <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="tomypage()"> -->
+     	</form> --%>
+        <img src=".\img\arrow.png" alt="no_img" onclick="tomypage()">
+        <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="tomypage()">
       </div>
+      <center>
       <div class="container">
-        <Center><h4>Reservation Information</h4><br><br>
+        <h4>Reservation Information</h4><br><br>
         <div>
           <h5>Seat</h5>
           <%if(otheruser.checkValidSeat()==true){ %>
@@ -55,11 +60,12 @@
                   <td><%= otheruser.getSeatEndTime().getHours() %>:<%= otheruser.getSeatEndTime().getMinutes() %></td>
                   <td class="nocolor">
                   	<button type="button" name="button" onclick="
+                  	function kk(){
                   	<%
-                 		System.out.println("onclick");
+                 		/* System.out.println("onclick1");
                   		otheruser.setSeatId(0);
-                  		otherUserDAO.returnSeat(otheruser.getPhoneNumber());
-                  	%>">Return Seat</button>
+                  		otherUserDAO.returnSeat(otheruser.getPhoneNumber()); */
+                  	%>}">Return Seat</button>
                   	<button type="button" name="button">Cancel</button>
                   </td>
                 </tr>
@@ -72,7 +78,8 @@
         </div><!--first table!-->
         <div>
           <br><h5>Locker</h5>
-          <%if(otheruser.checkValidLocker()==true){ %>
+          <%
+          if(otheruser.checkValidLocker()==true){ %>
           <div class="tb_container">
             <div class="table_container">
               <table class="personal">
@@ -80,13 +87,13 @@
                   <td style="background-color:#dff7cd;">Locker Number</td>
                 </tr>
                 <tr>
-                  <td>otheruser.getLockerId()</td>
+                  <td><%= otheruser.getLockerId() %></td>
                   <td class="nocolor">
                   	<button type="button" name="button" onclick="
                   	<%
-                 		System.out.println("onclick2");
+                 		/* System.out.println("onclick2");
                   		otheruser.setLockerId(0);
-                  		otherUserDAO.returnLocker(otheruser.getPhoneNumber());
+                  		otherUserDAO.returnLocker(otheruser.getPhoneNumber()); */
                   	%>">Return Locker</button>
                   	<button type="button" name="button">Cancel</button>
                   </td>
@@ -98,8 +105,8 @@
           <h6>You don't reserve locker.</h6>
           <% }%>
         </div><!--second table!-->
-      </Center>
       </div>
+      </center>
     </div>
   </body>
    <script src="JS/index_manage.js" type="text/javascript"></script>

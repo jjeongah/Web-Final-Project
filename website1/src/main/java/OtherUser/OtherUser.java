@@ -97,6 +97,12 @@ public class OtherUser {
 	public Timestamp getSeatEndTime() {
 		return seatEndTime;
 	}
+	public void setSeatStartTime(Timestamp seatStartTime) {
+		this.seatStartTime = seatStartTime;
+	}
+	public void setSeatEndTime(Timestamp seatEndTime) {
+		this.seatEndTime = seatEndTime;
+	}
 	public void setTimes(Timestamp seatStartTime, Timestamp seatEndTime) {
 		this.seatStartTime = seatStartTime;
 		this.seatEndTime = seatEndTime;

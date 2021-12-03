@@ -109,8 +109,6 @@
     		<%
         	  for(int col_num=0;col_num<2;col_num++){
         	  if(reserve.reserveSeats.contains(11+row_num*2+col_num)){
-        		  System.out.println(reserve.getMyInfo().getPhoneNumber());
-        		  System.out.println(my_phone_number);
         		  if(reserve.getMyInfo().getSeatId()==11+row_num*2+col_num){
         	 %>
         			 <td class="my" data-key="<%=11+row_num*2+col_num %>" onclick="function clickEachSeat(){
@@ -159,8 +157,7 @@
         	 if(reserve.getMyInfo().getSeatId()==21+row_num*2+col_num){
         	 %>
         			  <td class="my" data-key="<%=21+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(21+row_num*2+col_num);
-			        			  System.out.println("hhhh");%>
+			<%reserve.clickEachSeat(21+row_num*2+col_num);%>
 		}">
         	 			<%=21+row_num*2+col_num %>
         	 		</td>
@@ -227,7 +224,6 @@
         	 			<form method="post" action="reserveAction.jsp">
         	<button type="submit" class="btn-4" name="button" onclick="
         	<%
-       		System.out.println("haha");
     		request.setAttribute("clicked_seatId",31+row_num*2+col_num);
         	%>"><%=31+row_num*2+col_num %></button>
         </form>

@@ -1,4 +1,4 @@
 /*for manage.html page */
 function tomypage(){
-  location.href = "mypage.html";
+  location.href = "mypage.jsp";
 }
