@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %> <!-- 자바 스크립트 문장을 작성하기 위해 사용-->
+<% request.setCharacterEncoding("UTF-8"); %> <!-- 건너오는 모든 데이터를 UTF-8으로 받을 수 있도록 함 -->
+<jsp:useBean id="reservedao" class="reserve.ReserveDAO" scope="page"/> <!-- 한명의 회원 정보를 담는 User클래스를 자바 빈즈로 사용하며 현재 page안에서만 빈즈를 사용 -->
+<jsp:setProperty name="reservedao" property="reserveSeatId" />
+<jsp:setProperty name="reservedao" property="reserveSeatTimeNumber" />
+<jsp:setProperty name="reservedao" property="userPhoneNumber" />
+<jsp:setProperty name="reservedao" property="userChargedFee" />
+<jsp:setProperty name="reservedao" property="neededFee" />
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>reserveSeatAction</title>
+</head>
+<body>
+	<%  // 로그인 페이지에서 넘겨준 userID와 userPassword를 받아서 로그인 판별
+		System.out.println("in reserveSeatAction.jsp");
+		System.out.println(reservedao.getReserveSeatId());
+		int i= reservedao.reserveSeat(reservedao.getUserPhoneNumber(),reservedao.getUserChargedFee(),reservedao.getNeededFee(),
+				reservedao.getReserveSeatId(), reservedao.getReserveSeatTimeNumber());
+		if(i==-1){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('충전된 금액이 부족합니다.')");
+			script.println("history.back()");	
+			script.println("</script>");
+		}
+		else{
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('해당 좌석을 예약했습니다.')");
+			script.println("history.back()");	
+			script.println("</script>");
+		}
+	%>
+
+</body>
+</html>

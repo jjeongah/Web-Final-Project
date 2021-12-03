@@ -68,28 +68,23 @@
         	  if(reserve.reserveSeats.contains(1+row_num*2+col_num)){
         		  if(reserve.getMyInfo().getSeatId()==1+row_num*2+col_num){
         			  %>
-        			  <td class="my" data-key="<%=1+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(1+row_num*2+col_num);%>
-		}">
+        			 <td class="my" data-key="<%=1+row_num*2+col_num %>">
         	 			<%=1+row_num*2+col_num %>
         	 		</td>
         			  <%
         		  }else{
         	 %>
-        	 		<td class="occupied" data-key="<%=1+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(1+row_num*2+col_num);%>
-		}">
+        	 		<td class="occupied" data-key="<%=1+row_num*2+col_num %>">
         	 			<%=1+row_num*2+col_num %>
         	 		</td>
         	 <%
         	 }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=1+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(1+row_num*2+col_num);%>
-		}">
-        	 			<%=1+row_num*2+col_num %>
-        	 		</td>
+        		<td class="available" data-key="<%=1+row_num*2+col_num %>">
+    
+        			<%=1+row_num*2+col_num %>
+        	 	</td>
         		<%
         	  	}
     	      }
@@ -111,27 +106,21 @@
         	  if(reserve.reserveSeats.contains(11+row_num*2+col_num)){
         		  if(reserve.getMyInfo().getSeatId()==11+row_num*2+col_num){
         	 %>
-        			 <td class="my" data-key="<%=11+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(11+row_num*2+col_num);%>
-		}">
+        			 <td class="my" data-key="<%=11+row_num*2+col_num %>">
         	 			<%=11+row_num*2+col_num %>
         	 		</td>
         			  <%
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=11+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(11+row_num*2+col_num);%>
-		}">
+        	 		<td class="occupied" data-key="<%=11+row_num*2+col_num %>">
         	 			<%=11+row_num*2+col_num %>
         	 		</td>
         	 <%
         		  }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=11+row_num*2+col_num %>"  onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(11+row_num*2+col_num);%>
-		}">
+        		   <td class="available" data-key="<%=11+row_num*2+col_num %>">
         	 			<%=11+row_num*2+col_num %>
         	 		</td>
         		<%
@@ -156,26 +145,20 @@
         	  if(reserve.reserveSeats.contains(21+row_num*2+col_num)){
         	 if(reserve.getMyInfo().getSeatId()==21+row_num*2+col_num){
         	 %>
-        			  <td class="my" data-key="<%=21+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(21+row_num*2+col_num);%>
-		}">
+        			  <td class="my" data-key="<%=21+row_num*2+col_num %>">
         	 			<%=21+row_num*2+col_num %>
         	 		</td>
         			  <%
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=21+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(21+row_num*2+col_num);%>
-		}">
+        	 		<td class="occupied" data-key="<%=21+row_num*2+col_num %>">
         	 			<%=21+row_num*2+col_num %>
         	 		</td>
         	 <%
         		  }}else{
         		%>
-        		   <td class="available" data-key="<%=21+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(21+row_num*2+col_num);%>
-		}">
+        		   <td class="available" data-key="<%=21+row_num*2+col_num %>">
         	 			<%=21+row_num*2+col_num %>
         	 		</td>
         		<%
@@ -201,19 +184,14 @@
         	  if(reserve.reserveSeats.contains(31+row_num*2+col_num)){
         		  if(reserve.getMyInfo().getSeatId()==31+row_num*2+col_num){
         	        	 %>
-        	        			  <td class="my" data-key="<%=31+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(31+row_num*2+col_num);%>
-		}"><form method="post" action="loginAction.jsp">
-        <button type="submit" class="btn-4" name="button" onclick="gotoreservepage()"><%=31+row_num*2+col_num %></button>
-        </form>
+        	        			<td class="my" data-key="<%=31+row_num*2+col_num %>">
+        	        			  <%=31+row_num*2+col_num %>
         	        	 		</td>
         	        			  <%
         	        			  }
         	        		  else{
         	        	 %>
-        	        	 		<td class="occupied" data-key="<%=31+row_num*2+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(31+row_num*2+col_num);%>
-		}">
+        	        	 		<td class="occupied" data-key="<%=31+row_num*2+col_num %>">
         	        	 			<%=31+row_num*2+col_num %>
         	        	 		</td>
         	        	 <%
@@ -221,12 +199,7 @@
         	  }else{
         		%>
         		   <td class="available" data-key="<%=31+row_num*2+col_num %>">
-        	 			<form method="post" action="reserveAction.jsp">
-        	<button type="submit" class="btn-4" name="button" onclick="
-        	<%
-    		request.setAttribute("clicked_seatId",31+row_num*2+col_num);
-        	%>"><%=31+row_num*2+col_num %></button>
-        </form>
+        	 			<%=31+row_num*2+col_num %>
         	 		</td>
         		<%
         	  	}
@@ -252,18 +225,14 @@
         	  if(reserve.reserveSeats.contains(41+col_num)){
         	 if(reserve.getMyInfo().getSeatId()==41+row_num*2+col_num){
         	 %>
-        			  <td class="my" data-key="<%=41+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(41+row_num*2+col_num);%>
-		}">
+        			  <td class="my" data-key="<%=41+col_num %>">
         	 			<%=41+col_num %>
         	 		</td>
         			  <%
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=41+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(41+row_num*2+col_num);%>
-		}">
+        	 		<td class="occupied" data-key="<%=41+col_num %>">
         	 			
         	 			<%=41+col_num %>
         	 		</td>
@@ -271,9 +240,7 @@
         		  }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=41+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachSeat(41+row_num*2+col_num);%>
-		}">
+        		   <td class="available" data-key="<%=41+col_num %>">
         	 			
         	 			<%=41+col_num %>
         	 		</td>
@@ -319,9 +286,7 @@
         	  if(reserve.reserveLockers.contains(1+row_num*5+col_num)){
         		  if(reserve.getMyInfo().getLockerId()==1+row_num*5+col_num){
         	 %>
-        			 <td class="my" data-key="<%=1+row_num*5+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachLocker(1+row_num*5+col_num);%>
-		}">
+        			 <td class="my" data-key="<%=1+row_num*5+col_num %>">
         	 			
         	 			<%=1+row_num*5+col_num %>
         	 		</td>
@@ -329,18 +294,14 @@
         			  }
         		  else{
         	 %>
-        	 		<td class="occupied" data-key="<%=1+row_num*5+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachLocker(1+row_num*5+col_num);%>
-		}">
+        	 		<td class="occupied" data-key="<%=1+row_num*5+col_num %>">
         	 			<%=1+row_num*5+col_num %>
         	 		</td>
         	 <%
         		  }
         	  }else{
         		%>
-        		   <td class="available" data-key="<%=1+row_num*5+col_num %>" onclick="function clickEachSeat(){
-			<%reserve.clickEachLocker(1+row_num*5+col_num);%>
-		}">
+        		   <td class="available" data-key="<%=1+row_num*5+col_num %>">
         	 			<%=1+row_num*5+col_num %>
         	 		</td>
         		<%
@@ -377,38 +338,50 @@
       </button>
       <span class="reserve_popup_content_title">Reserve 10th seat</span>
       <div class="reserve_popup_grid">
-        <button type="button" name="button" onclick="reserve_seat_hours(2); function reserveInDB(){
-            <%
-            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),3000,reserve.clicked_seatId, 2);
-            %>
-            };">
-          <span>2 hours</span>
-          <span>3000\</span>
-        </button>
-        <button type="button" name="button" onclick="reserve_seat_hours(3); function reserveInDB(){
-            <%
-            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),4000,reserve.clicked_seatId, 3);
-            %>
-            };">
-          <span>3 hours</span>
-          <span>4000\</span>
-        </button>
-        <button type="button" name="button" onclick="reserve_seat_hours(4); function reserveInDB(){
-            <%
-            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),5000,reserve.clicked_seatId, 4);
-            %>
-            };">
-          <span>4 hours</span>
-          <span>5000\</span>
-        </button>
-        <button type="button" name="button" onclick="reserve_seat_hours(5); function reserveInDB(){
-            <%
-            reserve.reserveDAO.reserveSeat(reserve.getMyInfo().getPhoneNumber(),reserve.getMyInfo().getChargedFee(),6000,reserve.clicked_seatId, 5);
-            %>
-            };">
-          <span>5 hours</span>
-          <span>6000\</span>
-        </button>
+        <form action="./functions/reserveSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content2_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 2 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= reserve.getMyInfo().getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 3000 %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(2)">
+          	<span>2 hours</span>
+          	<span>3000\</span>
+        	</button>
+        </form>
+        <form action="./functions/reserveSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content3_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 3 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= reserve.getMyInfo().getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 4000 %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(3)">
+          	<span>3 hours</span>
+          	<span>4000\</span>
+        	</button>
+        </form>
+        <form action="./functions/reserveSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content4_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 4 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= reserve.getMyInfo().getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 5000 %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(4)">
+          	<span>4 hours</span>
+          	<span>5000\</span>
+        	</button>
+        </form>
+        <form action="./functions/reserveSeatAction.jsp" method="post">
+        	<input id="reserve_popup_content5_id" type="number" name="reserveSeatId" style="display:none;">
+        	<input type="number" name="reserveSeatTimeNumber"  value="<%= 5 %>" style="display:none;">
+        	<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
+        	<input type="number" name="userChargedFee"  value="<%= reserve.getMyInfo().getChargedFee() %>" style="display:none;">
+        	<input type="number" name="neededFee"  value="<%= 6000 %>" style="display:none;">
+        	<button type="submit" name="button" onclick="reserve_seat_hours(5)">
+          	<span>5 hours</span>
+          	<span>6000\</span>
+        	</button>
+        </form>
       </div>
       <button type="button" class="btn btn-secondary close_btn" id="close_btn"
       style="margin-right: 10px;">
@@ -435,7 +408,12 @@
       </button>
       <span class="reserve_locker_popup_content_title">Reserve 10th locker</span>
       <div class="popup_grid">
-        <button type="button" class="btn btn-primary return_btn">reserve</button>
+      	<form action="./functions/reserveLockerAction.jsp" method="post">
+      		<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
+        	<input id="reserve_locker_popup_content_id" type="number" name="reserveLockerId" style="display:none;">
+        	<button type="submit" class="btn btn-primary return_btn">reserve</button>
+        	</button>
+        </form>
         <button type="button" class="btn btn-secondary close_btn" id="reserve_close_btn">
           close
         </button>
@@ -444,7 +422,7 @@
 
 
     <!-- JS -->
-    <script src="JS/index_reserve2.js" type="text/javascript"></script>
+    <script src="JS/index_reserve3.js" type="text/javascript"></script>
 
 </body>
 </html>

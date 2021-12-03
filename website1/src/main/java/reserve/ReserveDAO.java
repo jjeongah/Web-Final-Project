@@ -13,7 +13,13 @@ public class ReserveDAO {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+	private int reserveSeatId;
+	private int reserveSeatTimeNumber;
+	private String userPhoneNumber;
+	private int userChargedFee;
+	private int neededFee;
 	
+	private int reserveLockerId;
 	public ReserveDAO() {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/studycafe";
@@ -25,6 +31,20 @@ public class ReserveDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void setReserveSeatId( int reserveSeatId) {
+		this.reserveSeatId = reserveSeatId;
+	}
+	public void setReserveSeatTimeNumber( int reserveSeatTimeNumber) {
+		this.reserveSeatTimeNumber = reserveSeatTimeNumber;
+	}
+	public int getReserveSeatId() {
+		return reserveSeatId;
+	}
+	public int getReserveSeatTimeNumber() {
+		return reserveSeatTimeNumber;
+	}
+	
 	
 	public ArrayList getMyInfo(String userPhoneNumber) {
 		ArrayList infoList = new ArrayList();
@@ -67,13 +87,14 @@ public class ReserveDAO {
 		Timestamp end = new Timestamp(time);
 		end.setTime(cal.getTime().getTime());
 		
-		String SQL = "UPDATE studycafe.users SET seatId=?, seatStartTime=?, seatEndTime=? WHERE (phoneNumber = ?)";
+		String SQL = "UPDATE studycafe.users SET seatId=?, seatStartTime=?, seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  reserveSeatId);
 			pstmt.setTimestamp(2,  start);
 			pstmt.setTimestamp(3,  end);
-			pstmt.setString(4,  userPhoneNumber);
+			pstmt.setInt(4,  userChargedFee-neededFee);
+			pstmt.setString(5,  userPhoneNumber);
 			int i= pstmt.executeUpdate(); 
 			
 		} catch (Exception e) {
@@ -94,6 +115,38 @@ public class ReserveDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public String getUserPhoneNumber() {
+		return userPhoneNumber;
+	}
+
+	public void setUserPhoneNumber(String userPhoneNumber) {
+		this.userPhoneNumber = userPhoneNumber;
+	}
+
+	public int getUserChargedFee() {
+		return userChargedFee;
+	}
+
+	public void setUserChargedFee(int userChargedFee) {
+		this.userChargedFee = userChargedFee;
+	}
+
+	public int getNeededFee() {
+		return neededFee;
+	}
+
+	public void setNeededFee(int neededFee) {
+		this.neededFee = neededFee;
+	}
+
+	public int getReserveLockerId() {
+		return reserveLockerId;
+	}
+
+	public void setReserveLockerId(int reserveLockerId) {
+		this.reserveLockerId = reserveLockerId;
 	}
 
 }

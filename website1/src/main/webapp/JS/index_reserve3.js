@@ -103,11 +103,16 @@ $('#tab_locker').click(function(){
 function showPopup(content_name, seat_num, todo, type){
   //todo: "Reserve" or "Return"
   //type: "seat" or "locker"
-  //reserve_popup_content_title
   $('.grey_background').show();
   $('#'+content_name).show();
   if(seat_num != null){
     document.querySelector('.'+content_name+'_title').innerHTML = `${todo} ${seat_num}th ${type}`;
+	console.log(seat_num);
+	if(content_name=='reserve_popup_content'){//click available seat
+		document.getElementById(content_name+'2_id').value = seat_num;
+	}else if(content_name=='reserve_locker_popup_content'){//click available locker
+		document.getElementById(content_name+'_id').value = seat_num;
+	}
   }
 }
 
@@ -146,6 +151,7 @@ document.querySelector('#reserve_locker_popup_content').addEventListener('click'
 //click seat
 document.querySelector('#seat_content').addEventListener('click', function(event) {
   if (event.target.classList.contains('available')) {
+	
     showPopup('reserve_popup_content', event.target.getAttribute('data-key'), "Reserve","seat");
   } else if (event.target.classList.contains('my')) {
     showPopup('return_popup_content', event.target.getAttribute('data-key'), "Return", "seat");

@@ -59,14 +59,11 @@
                   <td><%= otheruser.getSeatStartTime().getHours() %>:<%= otheruser.getSeatStartTime().getMinutes() %></td>
                   <td><%= otheruser.getSeatEndTime().getHours() %>:<%= otheruser.getSeatEndTime().getMinutes() %></td>
                   <td class="nocolor">
-                  	<button type="button" name="button" onclick="
-                  	function kk(){
-                  	<%
-                 		/* System.out.println("onclick1");
-                  		otheruser.setSeatId(0);
-                  		otherUserDAO.returnSeat(otheruser.getPhoneNumber()); */
-                  	%>}">Return Seat</button>
-                  	<button type="button" name="button">Cancel</button>
+                  	<form action="./functions/returnSeatAction.jsp" method="post">
+                  		<input type="text" name="userPhoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+                  		<button type="submit" name="button">Return Seat</button>
+                  	</form>
+                  	<button type="button" name="button">Extend</button>
                   </td>
                 </tr>
               </table>
@@ -89,13 +86,10 @@
                 <tr>
                   <td><%= otheruser.getLockerId() %></td>
                   <td class="nocolor">
-                  	<button type="button" name="button" onclick="
-                  	<%
-                 		/* System.out.println("onclick2");
-                  		otheruser.setLockerId(0);
-                  		otherUserDAO.returnLocker(otheruser.getPhoneNumber()); */
-                  	%>">Return Locker</button>
-                  	<button type="button" name="button">Cancel</button>
+                  	<form action="./functions/returnLockerAction.jsp" method="post">
+                  		<input type="text" name="userPhoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+                  		<button type="submit" name="button">Return Locker</button>
+                  	</form>
                   </td>
                 </tr>
               </table>

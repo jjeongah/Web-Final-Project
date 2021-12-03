@@ -14,6 +14,7 @@ public class OtherUserDAO {
 	private Connection conn; 
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+	public String userPhoneNumber;
 	
 	public OtherUserDAO() {
 		try {
@@ -25,6 +26,14 @@ public class OtherUserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void setUserPhoneNumber(String userPhoneNumber) {
+		this.userPhoneNumber = userPhoneNumber;
+	}
+	
+	public String getUserPhoneNumber() {
+		return userPhoneNumber;
 	}
 
 	public List<OtherUser> getAllUsers() {
@@ -72,6 +81,7 @@ public class OtherUserDAO {
 	}	
 	
 	public void returnSeat(String userPhoneNumber) {
+		System.out.println("userPhoneNumber"+userPhoneNumber);
 		String SQL = "UPDATE studycafe.users SET seatId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
