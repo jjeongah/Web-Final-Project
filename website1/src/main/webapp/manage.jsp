@@ -30,13 +30,11 @@
     </style>
     <div>
       <div class="card">
-      	<%-- <form method="post" action="mypage.jsp">
+      	<form method="post" action="mypage.jsp">
       		<input type="text" name="phoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
       		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img src=".\img\arrow.png" alt="no_img" onclick="tomypage()"></button>
       		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="tomypage()"></button>
-     	</form> --%>
-        <img src=".\img\arrow.png" alt="no_img" onclick="tomypage()">
-        <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="tomypage()">
+     	</form> 
       </div>
       <center>
       <div class="container">

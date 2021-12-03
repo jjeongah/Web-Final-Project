@@ -15,6 +15,7 @@ public class OtherUserDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	public String userPhoneNumber;
+	private int userChargedFee;
 	
 	public OtherUserDAO() {
 		try {
@@ -101,5 +102,25 @@ public class OtherUserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void chargeFee(String userPhoneNumber, int userChargedFee) {
+		String SQL = "UPDATE studycafe.users SET chargedFee=chargedFee+? WHERE (phoneNumber = ?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1,  userChargedFee);
+			pstmt.setString(2,  userPhoneNumber);
+			int i= pstmt.executeUpdate(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public int getUserChargedFee() {
+		return userChargedFee;
+	}
+
+	public void setUserChargedFee(int userChargedFee) {
+		this.userChargedFee = userChargedFee;
 	}
 }

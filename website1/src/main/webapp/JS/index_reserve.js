@@ -1,5 +1,6 @@
 /*for reserve.html page */
 function logout(){
+	localStorage.setItem("phone_num", "");
   location.href = "main.html";
 }
 function gotomypage(){
@@ -110,6 +111,9 @@ function showPopup(content_name, seat_num, todo, type){
 	console.log(seat_num);
 	if(content_name=='reserve_popup_content'){//click available seat
 		document.getElementById(content_name+'2_id').value = seat_num;
+		document.getElementById(content_name+'3_id').value = seat_num;
+		document.getElementById(content_name+'4_id').value = seat_num;
+		document.getElementById(content_name+'5_id').value = seat_num;
 	}else if(content_name=='reserve_locker_popup_content'){//click available locker
 		document.getElementById(content_name+'_id').value = seat_num;
 	}

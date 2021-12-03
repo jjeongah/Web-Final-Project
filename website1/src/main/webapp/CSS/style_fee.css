@@ -10,12 +10,22 @@ img{
 .card {
     background-color: #565952;
 }
-.card .img-top {
+.card .img-down{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.card .img-top{
     display: none;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 99;
+}
+.card:hover .img-down {
+    display: none;
 }
 .card:hover .img-top {
     display: inline;
@@ -40,6 +50,13 @@ button{
     background-color: #aade6a;
     border-width: 0.1px;
     border-radius: 10px;
+}
+
+.button_noback{
+	background-color: transparent !important;
+  border-width: 0;
+  border-radius: 0;
+  margin: 0;
 }
 
 .btn-4 {

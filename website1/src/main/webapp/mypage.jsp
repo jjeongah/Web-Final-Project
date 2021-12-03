@@ -30,11 +30,18 @@
       </div>
       <Center><h1 class="mp">My Page</h1></Center>
       <div class="buttons">
-        <Center><form method="post" action="manage.jsp">
-        	<input type="text" name="phoneNumber" value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
-        	<button class="btn-1" type="submit" name="button" onclick="tomanagepage()"><h4>Manage reservation</h4></button>
-        </form>
-        <Center><button class="btn-1" type="button" name="button" onclick="tofeepage()"><h4>Charge fee</h4></button>
+        <Center>
+        	<form method="post" action="manage.jsp">
+        		<input type="text" name="phoneNumber" value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        		<button class="btn-1" type="submit" name="button" onclick="tomanagepage()"><h4>Manage reservation</h4></button>
+        	</form>
+        </Center>
+        <Center>
+        	<form method="post" action="fee.jsp">
+        		<input type="text" name="phoneNumber" value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        		<button class="btn-1" type="submit" name="button" onclick="tofeepage()"><h4>Charge fee</h4></button>
+        	</form>
+		</Center>
       </div>
   </div>
   </body>

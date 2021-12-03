@@ -4,7 +4,7 @@ function tomanagepage(){
 }
 
 function tofeepage(){
-  location.href = "fee.html";
+  location.href = "fee.jsp";
 }
 
 function toreservepage(){

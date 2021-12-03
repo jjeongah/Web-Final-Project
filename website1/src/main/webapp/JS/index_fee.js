@@ -1,6 +1,6 @@
 /*for manage.html page */
 function gotomypage(){
-  location.href = "mypage.html";
+  location.href = "mypage.jsp";
 }
 function gotomainpage(){
   location.href = "main.html";

@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%  // 로그인 페이지에서 넘겨준 userID와 userPassword를 받아서 로그인 판별
+	<%
 		System.out.println("in reserveSeatAction.jsp");
 		currentuserdao.returnLocker(currentuserdao.getUserPhoneNumber());
 		PrintWriter script = response.getWriter();
