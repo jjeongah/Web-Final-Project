@@ -10,11 +10,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Manage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style_manage2.css">
   </head>
   <body>
@@ -25,6 +26,9 @@
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
+    <!-- for grey background -->
+    <div class="grey_background">empty</div>
+    
     <div>
     <div>
     	<div class="card">
@@ -38,6 +42,9 @@
       	<button type="button" name="button" onclick="window.location.reload()" class="btn-4 green_button">
         	reload page
       	</button>
+      </div>
+      <div class="current_layout">
+      	<h5>Current fee: </h5><h3 style="color: #719e44"><%=otheruser.getChargedFee()%> won</h3>
       </div>
     </div>
       <center>
@@ -167,5 +174,5 @@
       </button>
     </div>
   </body>
-   <script src="JS/index_manage.js" type="text/javascript"></script>
+   <script src="JS/index_manage2.js" type="text/javascript"></script>
 </html>

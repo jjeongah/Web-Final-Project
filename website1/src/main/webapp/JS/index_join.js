@@ -1,6 +1,6 @@
 /*for join.html page */
 function gotomainpage(){
-  location.href = "main.html";
+  location.href = "main.jsp";
 }
 /*functions for popup start*/
 function show() {

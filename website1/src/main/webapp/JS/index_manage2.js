@@ -3,7 +3,9 @@ function tomypage(){
   location.href = "mypage.jsp";
 }
 
+$('.grey_background').hide();
 $('#reserve_popup_content').hide();
+
 // pop up
 function hidePopup(content_name){
   $('.grey_background').hide();
@@ -21,6 +23,8 @@ document.querySelector('#reserve_popup_content').addEventListener('click', funct
 //click extend button
 if(document.querySelector('#extendTime')!=null){
 	document.querySelector('#extendTime').addEventListener('click', function(event) {
+		//show popup
+		$('.grey_background').show();
 		$('#reserve_popup_content').show();
 	});
 }

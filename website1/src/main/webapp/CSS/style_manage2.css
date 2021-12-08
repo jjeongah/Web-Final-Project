@@ -37,6 +37,13 @@ img{
     right: 15px;
     z-index: 1;
 }
+.current_layout{
+	position: absolute;
+    top: 90px;
+    right: 15px;
+    z-index: 1;
+    background-color: transparent;
+}
 
 .container{
   margin-top: 2%;
@@ -107,7 +114,7 @@ th, td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  width: 420px;
 }
 
 .popup > span{
@@ -118,7 +125,7 @@ th, td {
 .close_btn{
   /* x button */
   align-self: flex-end;
-  margin: 0 3px 0 3px;
+  margin-right: 5px;
 }
 
 .reserve_popup_grid{
@@ -132,7 +139,7 @@ th, td {
 .reserve_popup_grid >form> button{
   border: 0;
   margin: 0;
-  padding: 10px;
+  padding: 10px !important;
   border-radius: 3px;
   background-color: #aade6a;
   display: flex;
@@ -173,11 +180,20 @@ th, td {
   -webkit-transition: all 1.25s cubic-bezier(0.19, 1, 0.22, 1);
   transition: all 1.25s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.btn-4:hover {
+.btn-4:hover{
 	padding: 5px 10px;
   border: 1px solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388;
+}
+
+.grey_background{
+  color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  opacity: 0.6;
 }

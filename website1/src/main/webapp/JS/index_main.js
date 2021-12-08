@@ -1,8 +1,8 @@
 /*for main.html page */
 function tologinpage(){
-  location.href = "login.html";
+  location.href = "login.jsp";
 }
 
 function tojoinpage(){
-  location.href = "join.html";
+  location.href = "join.jsp";
 }

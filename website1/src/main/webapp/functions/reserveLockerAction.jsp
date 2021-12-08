@@ -20,7 +20,7 @@
 		reservedao.reserveLocker(reservedao.getUserPhoneNumber(),reservedao.getReserveLockerId());
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('해당 사물함을 예약했습니다.')");
+		script.println("alert('Successfully reserve your locker.')");
 		script.println("history.back()");	
 		script.println("</script>");
 	%>

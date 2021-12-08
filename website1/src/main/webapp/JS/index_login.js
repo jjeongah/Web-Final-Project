@@ -1,6 +1,6 @@
 /*for login.html page */
 function gotomainpage(){
-  location.href = "main.html";
+  location.href = "main.jsp";
 }
 
 function gotoreservepage(){

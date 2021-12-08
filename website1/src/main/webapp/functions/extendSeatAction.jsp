@@ -23,14 +23,14 @@
 		if(i==-1){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('충전된 금액이 부족합니다.')");
+			script.println("alert('Your charged fee is insufficient.')");
 			script.println("history.back()");	
 			script.println("</script>");
 		}
 		else{
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('연장이 완료되었습니다.')");
+			script.println("alert('Successfully extend your seat.')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

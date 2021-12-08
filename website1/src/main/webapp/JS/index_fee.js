@@ -3,7 +3,7 @@ function gotomypage(){
   location.href = "mypage.jsp";
 }
 function gotomainpage(){
-  location.href = "main.html";
+  location.href = "main.jsp";
 }
 
 let name_bool = false;

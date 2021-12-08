@@ -39,7 +39,7 @@ td:hover{
 .grey_background{
   color: transparent;
   position: absolute;
-  width: 100%;
+  width: 150%;
   height: 100%;
   background-color: grey;
   opacity: 0.6;

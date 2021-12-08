@@ -3,6 +3,7 @@
 <%@ page import="reserve.*" %>
 <%@ page import="OtherUser.*" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,14 @@
 	</script>
 	<%
 		String my_phone_number = (String)session.getAttribute("phone_number");
+	if(my_phone_number==null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('You are not log in.')");
+		script.println("location.href = 'main.jsp'");
+		script.println("</script>");
+	}
+	System.out.println(my_phone_number);
 	%>
 	<%
 		OtherUserDAO otherUserDAO = new OtherUserDAO();

@@ -18,7 +18,7 @@
 		currentuserdao.returnSeat(currentuserdao.getUserPhoneNumber());
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('해당 좌석이 반납되었습니다.')");
+		script.println("alert('Successfully return your seat.')");
 		script.println("history.back()");	
 		script.println("</script>");
 	%>

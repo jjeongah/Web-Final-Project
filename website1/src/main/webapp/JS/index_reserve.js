@@ -1,7 +1,6 @@
 /*for reserve.html page */
 function logout(){
-	localStorage.setItem("phone_num", "");
-  location.href = "main.html";
+  location.href = "main.jsp";
 }
 function gotomypage(){
   location.href = "mypage.jsp";
@@ -184,19 +183,3 @@ function reserve_seat_hours(hours){
   console.log(hours);
 hidePopup('reserve_popup_content');
 }
-
-
-var user_phone_num;
-//local storage로부터 가져오기
-function getFromLocalStorage() {
-  const reference = localStorage.getItem('phone_num');
-  // if reference exists
-  if (reference) {
-    // converts back to array and store it in todos array
-    user_phone_num = reference;
-	console.log(user_phone_num);
-  }
- 	return user_phone_num;
-}
-
-getFromLocalStorage();

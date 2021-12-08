@@ -20,7 +20,7 @@
 		currentuserdao.chargeFee(currentuserdao.getUserPhoneNumber(), currentuserdao.getUserChargedFee());
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('성공적으로 충전되었습니다.')");
+		script.println("alert('Successfully charge fee')");
 		script.println("history.back()");
 		script.println("</script>");
 	%>
