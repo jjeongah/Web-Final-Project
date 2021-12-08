@@ -15,12 +15,13 @@
 </head>
 <body>
 	<%  // 로그인 페이지에서 넘겨준 userID와 userPassword를 받아서 로그인 판별
+	session.setAttribute("phone_number",user.getPhoneNumber());
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(user.getPhoneNumber(), user.getUserPassword());
 		if (result == 1){ // 로그인 정보가 맞으면 자바스크립트를 실행하여 페이지를 이동시킴
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("location.href = 'reserve.html'"); // main 페이지로 사용자를 보냄 
+			script.println("location.href = 'reserve.jsp'"); // main 페이지로 사용자를 보냄 
 			script.println("</script>");
 		}
 		else if (result == 0){ 

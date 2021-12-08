@@ -50,7 +50,7 @@ public class ReserveDAO {
 	
 	public ArrayList getMyInfo(String userPhoneNumber) {
 		ArrayList infoList = new ArrayList();
-		String SQL = "SELECT * FROM studycafe.users WHERE phoneNumber = ?";
+		String SQL = "SELECT * FROM studycafe.user WHERE phoneNumber = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,  userPhoneNumber);
@@ -89,7 +89,7 @@ public class ReserveDAO {
 		Timestamp end = new Timestamp(time);
 		end.setTime(cal.getTime().getTime());
 		
-		String SQL = "UPDATE studycafe.users SET seatId=?, seatStartTime=?, seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
+		String SQL = "UPDATE studycafe.user SET seatId=?, seatStartTime=?, seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  reserveSeatId);
@@ -107,7 +107,7 @@ public class ReserveDAO {
 	}
 	
 	public void reserveLocker(String userPhoneNumber, int reserveLockerId) {
-		String SQL = "UPDATE studycafe.users SET lockerId=? WHERE (phoneNumber = ?)";
+		String SQL = "UPDATE studycafe.user SET lockerId=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  reserveLockerId);
@@ -138,7 +138,7 @@ public class ReserveDAO {
 		Timestamp end = seatEndTimeStamp;
 		end.setTime(cal.getTime().getTime());
 		
-		String SQL = "UPDATE studycafe.users SET seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
+		String SQL = "UPDATE studycafe.user SET seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setTimestamp(1,  end);

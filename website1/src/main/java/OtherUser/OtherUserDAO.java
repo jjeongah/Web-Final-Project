@@ -38,7 +38,7 @@ public class OtherUserDAO {
 	}
 
 	public List<OtherUser> getAllUsers() {
-		String sqlquery = "SELECT * FROM studycafe.users;";
+		String sqlquery = "SELECT * FROM studycafe.user;";
 		List<OtherUser> list = new ArrayList<OtherUser>();
 		try{
 	    	 Statement st = conn.prepareStatement(sqlquery);
@@ -62,7 +62,7 @@ public class OtherUserDAO {
 	}	
 	
 	public OtherUser getOneUser(String userPhoneNumber) {
-		String sqlquery = "SELECT * FROM studycafe.users WHERE phoneNumber=?;";
+		String sqlquery = "SELECT * FROM studycafe.user WHERE phoneNumber=?;";
 		if(userPhoneNumber==null) {return null;}
 		System.out.println("userPhoneNumber"+userPhoneNumber);
 		OtherUser otherUser = null;
@@ -83,7 +83,7 @@ public class OtherUserDAO {
 	
 	public void returnSeat(String userPhoneNumber) {
 		System.out.println("userPhoneNumber"+userPhoneNumber);
-		String SQL = "UPDATE studycafe.users SET seatId=0 WHERE (phoneNumber = ?)";
+		String SQL = "UPDATE studycafe.user SET seatId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,  userPhoneNumber);
@@ -94,7 +94,7 @@ public class OtherUserDAO {
 	}
 	
 	public void returnLocker(String userPhoneNumber) {
-		String SQL = "UPDATE studycafe.users SET lockerId=0 WHERE (phoneNumber = ?)";
+		String SQL = "UPDATE studycafe.user SET lockerId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,  userPhoneNumber);
@@ -105,7 +105,7 @@ public class OtherUserDAO {
 	}
 	
 	public void chargeFee(String userPhoneNumber, int userChargedFee) {
-		String SQL = "UPDATE studycafe.users SET chargedFee=chargedFee+? WHERE (phoneNumber = ?)";
+		String SQL = "UPDATE studycafe.user SET chargedFee=chargedFee+? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  userChargedFee);

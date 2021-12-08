@@ -17,10 +17,14 @@
 
 </head>
 <body>
-	<% 
-	String my_phone_number = "010-6217-9873";
+
+	<script>
+	
+	</script>
+	<%
+		String my_phone_number = (String)session.getAttribute("phone_number");
 	%>
-	<%  // 로그인 페이지에서 넘겨준 userID와 userPassword를 받아서 로그인 판별
+	<%
 		OtherUserDAO otherUserDAO = new OtherUserDAO();
 		List<OtherUser> list = otherUserDAO.getAllUsers();
 		Reserve reserve = new Reserve(list, my_phone_number);//dummy data

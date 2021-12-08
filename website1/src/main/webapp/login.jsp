@@ -24,7 +24,7 @@
         Phone number:
         <input  id= "input1" type="text" name="phoneNumber"  value=""><br>
         Password:
-        <input id="input2" type="text" name="userPassword" value="">
+        <input id="input2" type="password" name="userPassword" value="">
         <br>
         <button type="submit" class="btn-4" name="button" onclick="gotoreservepage()">Login</button>
         </form>
