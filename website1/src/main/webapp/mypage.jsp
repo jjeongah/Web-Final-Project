@@ -3,8 +3,8 @@
 <%@ page import="OtherUser.OtherUserDAO" %>
 <%@ page import="java.io.PrintWriter" %> <!-- 자바 스크립트 문장을 작성하기 위해 사용-->
 <% request.setCharacterEncoding("UTF-8"); %> <!-- 건너오는 모든 데이터를 UTF-8으로 받을 수 있도록 함 -->
-<jsp:useBean id="otheruser" class="OtherUser.OtherUser" scope="page"/> <!-- 한명의 회원 정보를 담는 otheruser클래스를 자바 빈즈로 사용-->
-<jsp:setProperty name="otheruser" property="phoneNumber"/>
+<jsp:useBean id="currentuser" class="OtherUser.OtherUser" scope="page"/> <!-- 한명의 회원 정보를 담는 otheruser클래스를 자바 빈즈로 사용-->
+<jsp:setProperty name="currentuser" property="phoneNumber"/>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -22,7 +22,18 @@
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
     <%
-    System.out.println("hh111"+otheruser.getPhoneNumber()); %>
+    	if(currentuser.getPhoneNumber()==null){
+    		String my_phone_number = (String)session.getAttribute("phone_number");
+    		if(my_phone_number==null){
+    			PrintWriter script = response.getWriter();
+    			script.println("<script>");
+    			script.println("alert('Please log in first.')");
+    			script.println("location.href = 'main.jsp'");
+    			script.println("</script>");
+    		}
+    		currentuser.setPhoneNumber(my_phone_number);
+    	}
+    %>
     <div>
       <div class="card">
         <img src=".\img\arrow.png" alt="no_img" onclick="toreservepage()">
@@ -32,13 +43,13 @@
       <div class="buttons">
         <Center>
         	<form method="post" action="manage.jsp">
-        		<input type="text" name="phoneNumber" value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        		<input type="text" name="phoneNumber" value="<%= currentuser.getPhoneNumber() %>" style="display:none;">
         		<button class="btn-1" type="submit" name="button" onclick="tomanagepage()"><h4>Manage reservation</h4></button>
         	</form>
         </Center>
         <Center>
         	<form method="post" action="fee.jsp">
-        		<input type="text" name="phoneNumber" value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
+        		<input type="text" name="phoneNumber" value="<%= currentuser.getPhoneNumber() %>" style="display:none;">
         		<button class="btn-1" type="submit" name="button" onclick="tofeepage()"><h4>Charge fee</h4></button>
         	</form>
 		</Center>

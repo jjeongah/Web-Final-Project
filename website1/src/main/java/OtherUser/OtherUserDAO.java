@@ -81,8 +81,7 @@ public class OtherUserDAO {
 	      }
 	}	
 	
-	public void returnSeat(String userPhoneNumber) {
-		System.out.println("userPhoneNumber"+userPhoneNumber);
+	public Boolean returnSeat(String userPhoneNumber) {
 		String SQL = "UPDATE studycafe.user SET seatId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -90,10 +89,12 @@ public class OtherUserDAO {
 			int i= pstmt.executeUpdate(); 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
-	public void returnLocker(String userPhoneNumber) {
+	public Boolean returnLocker(String userPhoneNumber) {
 		String SQL = "UPDATE studycafe.user SET lockerId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -101,18 +102,22 @@ public class OtherUserDAO {
 			int i= pstmt.executeUpdate(); 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
-	public void chargeFee(String userPhoneNumber, int userChargedFee) {
+	public Boolean chargeFee(String userPhoneNumber, int userChargedFee) {
 		String SQL = "UPDATE studycafe.user SET chargedFee=chargedFee+? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  userChargedFee);
 			pstmt.setString(2,  userPhoneNumber);
-			int i= pstmt.executeUpdate(); 
+			int i= pstmt.executeUpdate();
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 

@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%  // 로그인 페이지에서 넘겨준 userID와 userPassword를 받아서 로그인 판별
-	session.setAttribute("phone_number",user.getPhoneNumber());
+		session.setAttribute("phone_number",user.getPhoneNumber());
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(user.getPhoneNumber(), user.getUserPassword());
 		if (result == 1){ // 로그인 정보가 맞으면 자바스크립트를 실행하여 페이지를 이동시킴

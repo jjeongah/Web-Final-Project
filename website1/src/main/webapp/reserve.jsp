@@ -24,14 +24,13 @@
 	</script>
 	<%
 		String my_phone_number = (String)session.getAttribute("phone_number");
-	if(my_phone_number==null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('You are not log in.')");
-		script.println("location.href = 'main.jsp'");
-		script.println("</script>");
-	}
-	System.out.println(my_phone_number);
+		if(my_phone_number==null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('Please log in first.')");
+			script.println("location.href = 'main.jsp'");
+			script.println("</script>");
+		}
 	%>
 	<%
 		OtherUserDAO otherUserDAO = new OtherUserDAO();
@@ -43,15 +42,16 @@
     <div class="grey_background">empty</div>
     <!-- header -->
     <div class="header">
-      <button type="button" name="button" onclick="logout()" class="btn-4 green_button">
-        logout
-      </button>
+      <form method="post" action="./functions/logoutAction.jsp" class="btn-4 green_button">
+        <button type="submit" name="button" onclick="logout()"
+        class="simple_button">logout</button>
+      </form>
       <button type="button" name="button" onclick="window.location.reload()" class="btn-4 green_button">
         reload page
       </button>
       <form method="post" action="mypage.jsp" class="btn-4 green_button">
       	<input type="text" name="phoneNumber"  value="<%= my_phone_number %>" style="display:none;">
-        <button type="submit" name="button" onclick="gotomypage();"
+        <button type="submit" name="button" onclick="gotomypage()"
         class="simple_button">my page</button>
       </form>
     </div>

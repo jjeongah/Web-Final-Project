@@ -101,22 +101,23 @@ public class ReserveDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return -1;
+			return -2;
 		}
 		return 1;
 	}
 	
-	public void reserveLocker(String userPhoneNumber, int reserveLockerId) {
+	public Boolean reserveLocker(String userPhoneNumber, int reserveLockerId) {
 		String SQL = "UPDATE studycafe.user SET lockerId=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  reserveLockerId);
 			pstmt.setString(2,  userPhoneNumber);
 			int i= pstmt.executeUpdate(); 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
 	public int extendSeat(String userPhoneNumber,int userChargedFee,int neededFee, 
@@ -130,7 +131,7 @@ public class ReserveDAO {
 		    Date parsedDate = dateFormat.parse(seatEndTime);
 		    seatEndTimeStamp = new Timestamp(parsedDate.getTime());
 		} catch(Exception e) { //this generic but you can control another types of exception
-		    // look the origin of excption 
+		    // look the origin of exception 
 		}
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(seatEndTimeStamp);
@@ -148,7 +149,7 @@ public class ReserveDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return -1;
+			return -2;
 		}
 		return 1;
 	}

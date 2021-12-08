@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Main page</title>
+<title>Study Cafe</title>
 </head>
 <body>
 
