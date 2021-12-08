@@ -1,0 +1,196 @@
+/*for fee.html page */
+*{
+  font-family: 'Merriweather', serif;
+  background-color: #565952;
+}
+img{
+  width:80px;
+  margin-left: 10px;
+}
+.card {
+    background-color: #565952;
+}
+.card .img-down{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.card .img-top{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.card:hover .img-down {
+    display: none;
+}
+.card:hover .img-top {
+    display: inline;
+}
+.reload_layout{
+	position: absolute;
+    top: 25px;
+    right: 65px;
+    z-index: 1;
+}
+.reload_layout>button{
+/* reload button */
+	padding: 5px 10px;
+	width: 100%;
+	background-color: #aade6a;/* green */
+	border-width: 0px;
+	border-radius: 10px;
+}
+.current_layout{
+	position: absolute;
+    top: 90px;
+    right: 15px;
+    z-index: 1;
+    background-color: transparent;
+}
+
+.container{
+  margin-top: 2%;
+}
+h3{
+  color:white;
+}
+h5{
+  color:white;
+}
+form{
+  color:white;
+  margin-left: 37%;
+}
+input{
+  margin: 10px;
+}
+button{
+    width:20%;
+    height: 40px;
+    margin: 3%;
+    background-color: #aade6a;
+    border-width: 0.1px;
+    border-radius: 10px;
+}
+
+.button_noback{
+	background-color: transparent !important;
+  border-width: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+.btn-4 {
+  margin-left: 40%;
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 1.25s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 1.25s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn-4:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+}
+input{
+  background-color: white;
+  height: 40px;
+}
+select{
+  background-color: white;
+}
+option{
+  background-color: white;
+}
+select{
+  width: 200px;
+  padding: .8em .5em;
+  border: 1px solid #999;
+}
+.form_con{
+  display: grid;
+  grid-template-columns: 20% 55% 5% 20%;
+}
+i{
+  margin-top: 15px;
+  color: green;
+  display:none;
+}
+.alert_num{
+  color:red;
+  margin-left: 25%;
+  display:none;
+}
+.alert_pw{
+  display:none;
+  color:red;
+  margin-left: 25%;
+}
+
+/*for first popip*/
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+
+  /* 숨기기 */
+  z-index: -1;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+  /* 임시 지정 */
+  width: 400px;
+  height: 500px;
+
+  /* 초기에 약간 아래에 배치 */
+  transform: translate(-50%, -40%);
+}
+
+.show .popup {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
+
+.service{
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+}
+#success{
+  margin-top: 10px;
+  width: 300px;
+}
+.success_con{
+  background-color: white;
+}

@@ -15,7 +15,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
-    <link rel="stylesheet" href="CSS/style_manage.css">
+    <link rel="stylesheet" href="CSS/style_manage2.css">
   </head>
   <body>
   <% 
@@ -26,13 +26,20 @@
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
     <div>
-      <div class="card">
+    <div>
+    	<div class="card">
       	<form method="post" action="mypage.jsp">
       		<input type="text" name="phoneNumber"  value="<%= otheruser.getPhoneNumber() %>" style="display:none;">
       		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img class="img-down" src=".\img\arrow.png" alt="no_img" onclick="tomypage()"></button>
       		<button type="submit" name="button" class="button_noback" onclick="tomypage()"><img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="tomypage()"></button>
-     	</form> 
+     	</form>
       </div>
+      <div class="reload_layout">
+      	<button type="button" name="button" onclick="window.location.reload()" class="btn-4 green_button">
+        	reload page
+      	</button>
+      </div>
+    </div>
       <center>
       <div class="container">
         <h4>Reservation Information</h4><br><br>
@@ -100,7 +107,7 @@
     
     <!-- pop up -->
     <div class="reserve_popup_content popup" id="reserve_popup_content">
-      <button type="button" class="close_btn close" aria-label="Closename">
+      <button type="button" class="close_btn close button_noback" aria-label="Closename">
         <span aria-hidden="true" class="close_btn">&times;</span>
       </button>
       <span class="reserve_popup_content_title">Extend time for <%=otheruser.getSeatId() %>th seat</span>

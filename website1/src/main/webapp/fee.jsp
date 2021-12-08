@@ -15,13 +15,17 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
-    <link rel="stylesheet" href="CSS/style_fee.css">
+    <link rel="stylesheet" href="CSS/style_fee3.css">
   </head>
   <body>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
-
+	
+	<% 
+  		OtherUserDAO otherUserDAO = new OtherUserDAO(); 
+  		otheruser = otherUserDAO.getOneUser(otheruser.getPhoneNumber());
+ 	 %>
     <div class="background">
       <div class="window">
         <div class="popup">
@@ -45,7 +49,17 @@
       		<button type="submit" name="button" class="button_noback" onclick="gotomypage()"><img class="img-down" src=".\img\arrow.png" alt="no_img" onclick="gotomypage()"></button>
       		<button type="submit" name="button" class="button_noback img-top" onclick="gotomypage()"><img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="gotomypage()"></button>
      	</form>
-      </div><br>
+      </div>
+      <div class="reload_layout">
+      	<button type="button" name="button" onclick="window.location.reload()" class="btn-4 green_button">
+        	reload page
+      	</button>
+      </div>
+      <div class="current_layout">
+      	<h5>Current fee: </h5><h3 style="color: #719e44"><%=otheruser.getChargedFee()%> won</h3>
+      </div>
+      
+      <br>
       <div class="container">
         <Center><h3>Charge Fee</h3></Center><br><br>
         <form action="./functions/chargeFeeAction.jsp" method="post">
