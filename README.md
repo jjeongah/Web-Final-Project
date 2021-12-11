@@ -3,6 +3,7 @@ This project is for Web Programming Lab _SWE3048_43(Tamer)
 
 ## A Brief Overview
 Our team created the "SKKU Study Cafe" website with login, sign up, seat reservation, pay fee, and manage reservation functions.
+![화면 캡처 2021-12-11 212237](https://user-images.githubusercontent.com/65378914/145676389-a45db6d3-503b-4366-9352-3191a486c688.png)
 
 ## Installation
 - Download the code in [Github](https://github.com/jjeongah/Web-Programming-Backend) and unzip it
