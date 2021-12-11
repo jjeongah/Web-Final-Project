@@ -55,9 +55,17 @@ h4{
   bottom: auto;
   top: 0;
 }
+.flex{
+	width: 100%;
+	height: 100%;
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .container{
 	display: flex;
-	margin-left: 25%;
+	margin-left: 15%;
 	margin-top: 30px;
 }
 .cafeimg{
@@ -88,6 +96,7 @@ h4{
 	color:#2ea38a; 
 	background-color: #e0fff8;
 	opacity: 0; 
+	padding: 10px;
 	} 
 .photo:hover #explain{ opacity: 1; }
 
