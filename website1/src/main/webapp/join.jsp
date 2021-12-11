@@ -26,7 +26,7 @@
                 <br><br> Article 3 (Provision of identity information, etc.) <br>
                 The "Company" shall include the contents of these terms and conditions, trade name, representative name, business address (including the address where consumer complaints can be handled), phone number, facsimile number, E-mail address, business registration number, mail-order business report number, and the person in charge of personal information management are posted on the initial screen of the online service so that users can easily find out. However, the terms and conditions can be viewed by the user through the connection screen.
                 <br><br>Article 4 (Publication of Terms and Conditions, etc.)
-                <br> ич "Company" takes technical measures so that "members" can print all of these terms and conditions and check the contents of the terms and conditions during the transaction.
+                <br> (1) "Company" takes technical measures so that "members" can print all of these terms and conditions and check the contents of the terms and conditions during the transaction.
 иш "Company" installs technical devices so that "Users" can ask and answer questions about "Company" and the contents of these Terms and Conditions.
               </div>
               <div class="success_con"><br><br><br><br>
@@ -78,5 +78,5 @@
     </form>
     </div>
   </body>
-   <script src="JS/index_join.js" type="text/javascript"></script>
+   <script src="JS/index_join1.js" type="text/javascript"></script>
 </html>

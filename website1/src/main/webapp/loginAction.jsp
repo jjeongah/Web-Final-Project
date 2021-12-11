@@ -27,21 +27,21 @@
 		else if (result == 0){ 
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('비밀번호가 틀립니다.')");	
+			script.println("alert('Wrong password!')");	
 			script.println("history.back()"); // 이전 페이지로 사용자를 돌려 보냄.	
 			script.println("</script>");
 		}
 		else if (result == -2){ 
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('데이터베이스에 오류가 발생했습니다.')");	
+			script.println("alert('An error occurred in the database.')");	
 			script.println("history.back()");	
 			script.println("</script>");
 		}
 		else if (result == -1){ 
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('존재하지 않는 전화번호입니다.')");	
+			script.println("alert('Wrong phone number!')");	
 			script.println("history.back()");	
 			script.println("</script>");
 		}

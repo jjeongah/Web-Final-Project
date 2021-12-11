@@ -14,7 +14,7 @@ function close() {
 document.querySelector("#term1").addEventListener('click', show);
 document.querySelector("#close").addEventListener('click', close);
 
-let article="Article 13 (Publication of contents, etc. of \"Content\") <br> ① \"Company\" displays the following items on the initial screen of the \"Content\" or its packaging so that \"Users\" can understand it.\" <br> ② \"Company\" provides \"users\" with information on available devices for each \"content\" and minimum technical specifications required for use in the contract signing process. <br><br>Article 14 (Establishment of the contract of use, etc.)<br> ① The \"user\" applies for use through the following or similar procedures provided by the \"company\". The \"Company\" provides information so that the \"User\" can accurately understand and transact without mistakes or errors in each subparagraph before the conclusion of the contract. <br><br>Article 16 (Notification of Receipt Acknowledgment, Change and Cancellation of Application for Use) <br>① The \"Company\" notifies the \"User\" of the acknowledgment when there is an application for use by the \"User\".";
+let article="Article 13 (Publication of contents, etc. of \"Content\") <br> (1) \"Company\" displays the following items on the initial screen of the \"Content\" or its packaging so that \"Users\" can understand it.\" <br> (2) \"Company\" provides \"users\" with information on available devices for each \"content\" and minimum technical specifications required for use in the contract signing process. <br><br>Article 14 (Establishment of the contract of use, etc.)<br> (1) The \"user\" applies for use through the following or similar procedures provided by the \"company\". The \"Company\" provides information so that the \"User\" can accurately understand and transact without mistakes or errors in each subparagraph before the conclusion of the contract. <br><br>Article 16 (Notification of Receipt Acknowledgment, Change and Cancellation of Application for Use) <br>(1) The \"Company\" notifies the \"User\" of the acknowledgment when there is an application for use by the \"User\".";
 
 
 $("#term2").click(function(){
@@ -24,7 +24,7 @@ $("#term2").click(function(){
 });
 
 function success(){
-  /*if(document.getElementById("input_name").value =='' && document.getElementById("input_num").value !=''&& document.getElementById("input_pw").value !=''){
+  if(document.getElementById("input_name").value =='' && document.getElementById("input_num").value !=''&& document.getElementById("input_pw").value !=''){
     alert("Please enter your name!");
   }
   else if(document.getElementById("input_num").value =='' && document.getElementById("input_name").value !=''&& document.getElementById("input_pw").value !=''){
@@ -47,7 +47,7 @@ function success(){
   }
   else{
     console.log("success");
-  }*/
+  }
 
   if(!$('#agree').is(':checked') && $('#agree2').is(':checked')){
     alert("Please consent to use of service!");
@@ -59,13 +59,13 @@ function success(){
     alert("Please consent to use of service and information!");
   }
 
-  /*let success_ment ="<h1>You have successfully created an account</h1>";
+  let success_ment ="<h1>You have successfully created an account</h1>";
   if(name_bool == true && num_bool == true && pw_bool == true && repw_bool == true && $('#agree').is(':checked') &&$('#agree2').is(':checked') ){
     console.log("success!");
     document.querySelector(".service").innerHTML = success_ment;
     document.querySelector(".background").className = "background show";
     document.getElementById('success').style.display = 'block';
-  }*/
+  }
 }
 
 let last_input;
