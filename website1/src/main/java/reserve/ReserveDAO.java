@@ -11,15 +11,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ReserveDAO {
+//class for connect "Reserve" object with BackEnd
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	private int reserveSeatId;
-	private int reserveSeatTimeNumber;
-	private String userPhoneNumber;
-	private int userChargedFee;
-	private int neededFee;
-	private String seatEndTime;
+//to do "reserve","extend" action, need these information
+	private int reserveSeatId;//seat id which current user want to reserve
+	private int reserveSeatTimeNumber;//time which current user want to use seat
+	private String userPhoneNumber;//phone number
+	private int userChargedFee;//user's current charged fee
+	private int neededFee;//fee which user need to do "reserve" or "extend" seat
+	private String seatEndTime;//time when current seat will end
 	
 	private int reserveLockerId;
 	public ReserveDAO() {
@@ -39,6 +41,7 @@ public class ReserveDAO {
 	public ArrayList getMyInfo(String userPhoneNumber) {
 		//get current user's information with user's phone number
 		ArrayList infoList = new ArrayList();
+		//Using phone number, select current user's every information
 		String SQL = "SELECT * FROM studycafe.user WHERE phoneNumber = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -78,6 +81,8 @@ public class ReserveDAO {
 		Timestamp end = new Timestamp(time);
 		end.setTime(cal.getTime().getTime());
 		
+		//Using phone number, update seatId and seatStartTime and seatEndTime
+		//if it's past seatEndTime, seat will be automatically returned
 		String SQL = "UPDATE studycafe.user SET seatId=?, seatStartTime=?, seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -87,7 +92,6 @@ public class ReserveDAO {
 			pstmt.setInt(4,  userChargedFee-neededFee);
 			pstmt.setString(5,  userPhoneNumber);
 			int i= pstmt.executeUpdate(); 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -2;
@@ -99,6 +103,8 @@ public class ReserveDAO {
 		//do "reserve locker" for current user
 		//it is rent service without paying money
 		//so just record this in database
+		
+		//Using phone number, update lockerId
 		String SQL = "UPDATE studycafe.user SET lockerId=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -122,7 +128,7 @@ public class ReserveDAO {
 		//will change seatEndTime to new extended end time
 		Timestamp seatEndTimeStamp = null;
 		try {
-			//transform string -> timestamp
+			//transform string type -> timestamp type
 		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
 		    Date parsedDate = dateFormat.parse(seatEndTime);
 		    seatEndTimeStamp = new Timestamp(parsedDate.getTime());
@@ -136,6 +142,8 @@ public class ReserveDAO {
 		Timestamp end = seatEndTimeStamp;
 		end.setTime(cal.getTime().getTime());
 		
+		//Using phone number, update seatEndTime and chargedFee
+		//if it's past seatEndTime, seat will be automatically returned
 		String SQL = "UPDATE studycafe.user SET seatEndTime=?, chargedFee=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -150,6 +158,7 @@ public class ReserveDAO {
 		return 1;
 	}
 	
+	//get and set methods
 	public void setReserveSeatId( int reserveSeatId) {
 		this.reserveSeatId = reserveSeatId;
 	}

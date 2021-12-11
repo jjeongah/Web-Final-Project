@@ -4,17 +4,18 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class OtherUser {
-	private String userName;
-	private String userPassword;
-	private String phoneNumber;
-	private int chargedFee;
-	private int seatId;
-	private int lockerId;
-	private Timestamp seatStartTime;
-	private Timestamp seatEndTime;
+//class for storing information of user
+	private String userName;//user name
+	private String userPassword;//user password
+	private String phoneNumber;//phone number(primary key)
+	private int chargedFee;//charged fee (money which user currently has in the system)
+	private int seatId;//seat id
+	private int lockerId;//locker id
+	private Timestamp seatStartTime;//seat reserve start time
+	private Timestamp seatEndTime;//seat reserve end time
 	
+	//constructor
 	public OtherUser(){}
-	
 	public OtherUser(String userName, String userPassword, String phoneNumber,
 			int chargedFee, int seatId, int lockerId, Timestamp seatStartTime,  Timestamp seatEndTime) {
 		this.userName = userName;

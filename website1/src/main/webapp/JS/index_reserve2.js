@@ -58,6 +58,7 @@ function showPopup(content_name, seat_num, todo, type){
 		if(is_user_reserve_seat.value=="true"){//use "change to" word
 			todo = "Change to";
 		}
+		//change word in popup to clicked number
 		document.getElementById(content_name+'2_id').value = seat_num;
 		document.getElementById(content_name+'3_id').value = seat_num;
 		document.getElementById(content_name+'4_id').value = seat_num;
@@ -66,11 +67,12 @@ function showPopup(content_name, seat_num, todo, type){
 		if(is_user_reserve_locker.value=="true"){//use "change to" word
 			todo = "Change to";
 		}
+		//change word in popup to clicked number
 		document.getElementById(content_name+'_id').value = seat_num;
 	}
-	if(todo=="Return" && type=="seat"){//define action(return seat)
+	if(todo=="Return" && type=="seat"){//define action to return seat
 		document.getElementById(content_name+'_title_form').action = "./functions/returnSeatAction.jsp";
-	}else if(todo=="Return" && type=="locker"){//define action(return locker)
+	}else if(todo=="Return" && type=="locker"){//define action to return locker
 		document.getElementById(content_name+'_title_form').action = "./functions/returnLockerAction.jsp";
 	}
 	//change title of popup content
@@ -96,7 +98,6 @@ document.querySelector('#return_popup_content').addEventListener('click', functi
     hidePopup('return_popup_content');
   } else if (event.target.classList.contains('return_btn')) {
     //return seat
-    console.log("return_btn");
     hidePopup('return_popup_content');
   }
 });
@@ -106,7 +107,6 @@ document.querySelector('#reserve_locker_popup_content').addEventListener('click'
     hidePopup('reserve_locker_popup_content');
   } else if (event.target.classList.contains('return_btn')) {
     //return locker
-    console.log("return_btn");
     hidePopup('reserve_locker_popup_content');
   }
 });

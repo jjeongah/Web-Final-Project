@@ -40,7 +40,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
     
-    <!-- for grey background -->
+    <!-- grey background when popup shows -->
     <div class="grey_background">empty</div>
     
     <div>

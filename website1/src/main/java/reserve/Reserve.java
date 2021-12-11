@@ -9,9 +9,10 @@ import java.util.Set;
 import OtherUser.OtherUser;
 
 public class Reserve {
+//class for managing all reservation
 	//store all user's information
 	private List<OtherUser> reserveInfo;
-	//store current reserved seats and lockers
+	//store current reserved seats and lockers with "Set" structure
 	public Set reserveSeats;
 	public Set reserveLockers;
 	//store current user's information
@@ -56,6 +57,7 @@ public class Reserve {
 		} 
 	}
 	
+	//get and set methods
 	public int getNumOfSeats() {
 		return reserveSeats.size();
 	}

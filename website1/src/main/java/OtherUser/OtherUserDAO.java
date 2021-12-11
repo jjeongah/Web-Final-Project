@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OtherUserDAO {
+//class for connect "OtherUser" object with BackEnd
 	private Connection conn; 
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -39,13 +40,13 @@ public class OtherUserDAO {
 	    	 rs = st.executeQuery(sqlquery);
 	    	 while (rs.next()) {
 	    		OtherUser otherUser = new OtherUser();
-	    		otherUser.setUserName(rs.getString(1));
-	    		otherUser.setUserPassword(rs.getString(2));
-	    		otherUser.setPhoneNumber(rs.getString(3));
-	    		otherUser.setChargedFee(rs.getInt(4));
-	    		otherUser.setSeatId(rs.getInt(5));
-	    		otherUser.setLockerId(rs.getInt(6));
-	    		otherUser.setTimes(rs.getTimestamp(7), rs.getTimestamp(8));
+	    		otherUser.setUserName(rs.getString(1));//user name
+	    		otherUser.setUserPassword(rs.getString(2));//user password
+	    		otherUser.setPhoneNumber(rs.getString(3));//phone number
+	    		otherUser.setChargedFee(rs.getInt(4));//charged fee
+	    		otherUser.setSeatId(rs.getInt(5));//seat id
+	    		otherUser.setLockerId(rs.getInt(6));//locker id
+	    		otherUser.setTimes(rs.getTimestamp(7), rs.getTimestamp(8));//seat starttime, endtime
 	    		list.add(otherUser);
 	    	}
 	    	 return list;
@@ -57,6 +58,7 @@ public class OtherUserDAO {
 	
 	public OtherUser getOneUser(String userPhoneNumber) {
 		//get only one user's information with user's phone number
+		//Using phone number, select wanted user
 		String sqlquery = "SELECT * FROM studycafe.user WHERE phoneNumber=?;";
 		if(userPhoneNumber==null) {return null;}
 		OtherUser otherUser = null;
@@ -77,6 +79,8 @@ public class OtherUserDAO {
 	
 	public Boolean returnSeat(String userPhoneNumber) {
 		//do "return seat" action with user's phone number
+		//Using phone number, update seatId to 0
+		//"seatId:0" means "user don't reserve seat"
 		String SQL = "UPDATE studycafe.user SET seatId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -91,6 +95,8 @@ public class OtherUserDAO {
 	
 	public Boolean returnLocker(String userPhoneNumber) {
 		//do "return locker" action with user's phone number
+		//Using phone number, update lockerId to 0
+		//"lockerId:0" means "user don't reserve locker"
 		String SQL = "UPDATE studycafe.user SET lockerId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -105,6 +111,7 @@ public class OtherUserDAO {
 	
 	public Boolean chargeFee(String userPhoneNumber, int userChargedFee) {
 		//do "charge fee" action with user's phone number
+		//Using phone number, update new chargedFee
 		String SQL = "UPDATE studycafe.user SET chargedFee=chargedFee+? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -118,6 +125,7 @@ public class OtherUserDAO {
 		}
 	}
 	
+	//get and set methods
 	public void setUserPhoneNumber(String userPhoneNumber) {
 		this.userPhoneNumber = userPhoneNumber;
 	}

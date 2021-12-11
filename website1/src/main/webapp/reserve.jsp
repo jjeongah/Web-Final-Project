@@ -55,7 +55,7 @@
 	<input id='is_user_reserve_locker' type="hidden" value=<%=session.getAttribute("is_user_reserve_locker") %> />
 	
 	
-	<!-- for grey background when popup show -->
+	<!-- grey background when popup show -->
     <div class="grey_background">empty</div>
     
     <!-- header -->
@@ -285,6 +285,7 @@
       </div>
 
       <div class="seat_info">
+      <!-- seat information widget  -->
         <div>
           <div></div>
           <span>available</span>
@@ -344,6 +345,7 @@
       </div>
 
       <div class="locker_info">
+      <!-- locker information widget  -->
         <div>
           <div></div>
           <span>available</span>
