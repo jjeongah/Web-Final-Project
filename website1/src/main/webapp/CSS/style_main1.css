@@ -83,3 +83,8 @@ h4{
 .card:hover .img-top {
     display: inline;
 }
+#explain{ 
+	color: white;
+	opacity: 0; 
+	} 
+.photo:hover #explain{ opacity: 1; }
