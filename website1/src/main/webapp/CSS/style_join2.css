@@ -121,6 +121,22 @@ input{
   background-color: white;
 }
 
+#input_name{
+	margin-left: 45px;
+}
+
+#input_num{
+	margin-left: 45px;
+}
+
+#input_pw{
+	margin-left: 45px;
+}
+
+#input_repw{
+	margin-left: 45px;
+}
+
 h1{
   background-color: white;
 }
