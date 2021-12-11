@@ -48,5 +48,5 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 | jsp로 옮기면서 발생한 css 문제 수정   |~2021-12-10      |     완료     |
 | 회원가입 빈칸 확인 기능 수정| ~2021-12-10       | 완료      |
 | 회원가입 완료시 완료되었습니다 팝업 뜨게 수정 | ~2021-12-10       |완료  |
-| 데모 영상 촬영, readme 및 최종 보고서 작성 | ~2021-12-12 |   완료     |
+| 데모 영상 촬영, readme 및 최종 보고서 작성 | ~2021-12-12 |   완료     ||
 
