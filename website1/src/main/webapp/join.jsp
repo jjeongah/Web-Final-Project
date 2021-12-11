@@ -18,7 +18,7 @@
     <div class="background">
       <div class="window">
         <div class="popup">
-          <button id="close" class="btn btn-light">X</button>
+          <button id="close" class="btn btn-light ">X</button>
             <Center>
               <div class="service" style="font-size: 10px;">
                 Article 1 (Purpose)<br>
