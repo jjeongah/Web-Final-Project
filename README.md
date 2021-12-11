@@ -4,7 +4,7 @@
 Our team created the "SKKU Study Cafe" website with login, sign up, seat reservation, pay fee, and manage reservation functions.
 
 ## Installation
-- Download the code in [Github](https://github.com/jjeongah/Web-Programming-Backend)and unzip it
+- Download the code in [Github](https://github.com/jjeongah/Web-Programming-Backend) and unzip it
 - Open folder in eclipse work-space
 
 ## Work
