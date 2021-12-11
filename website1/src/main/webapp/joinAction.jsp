@@ -64,13 +64,14 @@
 	        ps.setString(1, userName);
 	        ps.setString(2, userPassword);
 	        ps.setString(3, phoneNumber);
+	       
 	        
 	        int i=ps.executeUpdate();
 	        PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('Going to login page')");
-			script.println("location.href = 'main.html'"); // main 페이지로 사용자를 보냄 
+			script.println("location.href = 'main.jsp'"); // main 페이지로 사용자를 보냄 
 			script.println("</script>");
+			
 	   }
 	   catch(Exception e){       
 		   e.printStackTrace();       

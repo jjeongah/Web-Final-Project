@@ -66,17 +66,19 @@ function success(){
   }*/
   console.log("name_bool");
   console.log(name_bool);
-  if(name_bool == false){
-	alert("Your name form is not valid. only contain alphabet. try again!");
-  }
-  else if(num_bool == false){
-	alert("Your phone number form is not valid. only contain number. try again!");
-  }
- else if(pw_bool == false){
-	alert("Your password form is not valid. (at least 6 char, 1 capital letter, 1 lowercase letter, at least 1 digit and 1 special character!)");
-  }
- else if(repw_bool == false){
-	alert("Please re-enter password correctly!)");
+  console.log("num_bool");
+  console.log(num_bool);
+  console.log("pw_bool");
+  console.log(pw_bool);
+  console.log("repw_bool");
+  console.log(repw_bool);
+  if(document.getElementById("input_pw").value !='' && document.getElementById("input_name").value !='' && document.getElementById("input_num").value !=''){
+	  if(name_bool == false|| num_bool == false || pw_bool == false || repw_bool == false ){
+		alert("Please try it again. The format of the value you entered is incorrect.");
+	  }
+      else{
+        alert('success!');
+      }
   }
 /*
   if(name_bool == false && num_bool == true && pw_bool == true && repw_bool == true){
