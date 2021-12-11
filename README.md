@@ -2,8 +2,9 @@
 This project is for Web Programming Lab _SWE3048_43(Tamer)
 
 ## A Brief Overview
-Our team created the "SKKU Study Cafe" website with login, sign up, seat reservation, pay fee, and manage reservation functions.
-<img src="https://user-images.githubusercontent.com/65378914/145676389-a45db6d3-503b-4366-9352-3191a486c688.png"  width="800" height="600"/>
+Our team created the "SKKU Study Cafe" website with login, sign up, seat reservation, pay fee, and manage reservation functions.  
+
+<img src="https://user-images.githubusercontent.com/65378914/145676389-a45db6d3-503b-4366-9352-3191a486c688.png"  width="700" height="400"/>
 
 ## Installation
 - Download the code in [Github](https://github.com/jjeongah/Web-Programming-Backend) and unzip it
@@ -26,7 +27,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 > 3. take on the login & join backend work  
 
 ## DB
-<img src="https://user-images.githubusercontent.com/65378914/145676127-65a12c2e-d111-4dee-b80a-8fdea406982a.png"  width="800" height="600"/>
+<img src="https://user-images.githubusercontent.com/65378914/145676127-65a12c2e-d111-4dee-b80a-8fdea406982a.png"  width="400" height="300"/>
 * our team use mysql
 
 ## Project Schedule
