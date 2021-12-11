@@ -44,23 +44,23 @@
       </div>
       <Center><form method="post" action="joinAction.jsp">
         <div class="form_con">
-          User name:
+          <font size="5">User name:</font>
           <input name="userName" id= "input_name" type="text" value=""><i id="icon_name" class="bi bi-check-circle-fill"></i><br>
         </div>
         <div class="alert_name" id="alert_name">Name is invalid</div><br>
         <div class="form_con">
-          Phone number:
+          <font size="5">Phone number:</font>
           <input name="phoneNumber" id= "input_num" type="text" value=""><i id="icon_num" class="bi bi-check-circle-fill"></i><br>
         </div>
         <div class="alert_num" id="alert_num">Number is invalid</div><br>
         <div class="form_con">
-          Password:
+          <font size="5">Password:</font>
           <input name="userPassword" id= "input_pw" type="password" value=""><i id="icon_pw" class="bi bi-check-circle-fill"></i><br>
         </div>
        <div class="alert_pw" id="alert_pw">Requirement: at least 6 char, 1 capital letter, 1 lowercase letter, at least 1 digit and 1 special character!</div>
         <br>
         <div class="form_con">
-          Password re-enter:
+          <font size="5">Password re-enter:</font>
           <input id= "input_repw" type="password" value=""><i id="icon_repw" class="bi bi-check-circle-fill"></i><br>
         </div>
         <div class="alert_repw" id="alert_repw">Password does not match</div><br>

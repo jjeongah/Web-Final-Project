@@ -21,9 +21,9 @@
         <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="gotomainpage()">
       </div>
       <Center><form method="post" action="loginAction.jsp">
-        Phone number:
+        <font size="6">Phone number:</font>
         <input  id= "input1" type="text" name="phoneNumber"  value=""><br>
-        Password:
+        <font size="6">Password        :</font>
         <input id="input2" type="password" name="userPassword" value="">
         <br>
         <button type="submit" class="btn-4" name="button" onclick="gotoreservepage()">Login</button>

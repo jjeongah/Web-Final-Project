@@ -27,10 +27,12 @@ form{
 }
 input{
   margin: 30px;
+  height: 90px;
+  width: 100px;
 }
 button{
-  width:10%;
-  height: 40px;
+  width:20%;
+  height: 50px;
   margin: 3%;
   background-color: #aade6a;
   border-width: 0.1px;
