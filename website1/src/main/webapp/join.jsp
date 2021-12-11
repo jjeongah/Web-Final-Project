@@ -30,7 +30,7 @@
 иш "Company" installs technical devices so that "Users" can ask and answer questions about "Company" and the contents of these Terms and Conditions.
               </div>
               <div class="success_con"><br><br><br><br>
-                <button cclass="btn-4" id="success" type="button" name="button" onclick ="gotomainpage()">Login now</button>
+                <button cclass="btn-4" id="success" type="button" name="button" onclick ="gotomainpage()">Please Login now</button>
               </div>
           </div><!--popup!-->
       </div><!--window!-->
