@@ -9,7 +9,7 @@
 }
 .buttons{
   display:grid;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 30% 30%;
 }
 button{
   width:30%;
@@ -84,7 +84,20 @@ h4{
     display: inline;
 }
 #explain{ 
-	color: white;
+	margin-top: 10px;
+	color:#2ea38a; 
+	background-color: #e0fff8;
 	opacity: 0; 
 	} 
 .photo:hover #explain{ opacity: 1; }
+
+table{
+	margin-top: 20px;
+}
+td{
+	color: #f2fce8;
+}
+.profile{
+	width: 30px;
+    height: 30px;
+}
