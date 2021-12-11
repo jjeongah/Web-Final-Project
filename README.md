@@ -26,7 +26,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 
 ## Project Schedule
 
--   김민희:
+#### 김민희:
 | 목표                           | 일정                 | 상태 |
 |--------------------------------|----------------------|--------|
 | 예약기능   | ~2021-12-3 | 완료     |
@@ -40,7 +40,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 | 마무리 | ~2021-12-12 |  완료    |
 
 
--   이정아:
+#### 이정아:
 | 목표                           | 일정                 | 상태 |
 |--------------------------------|----------------------|--------|
 | 회원가입 백엔드    |~2021-11-30        | 완료       |
