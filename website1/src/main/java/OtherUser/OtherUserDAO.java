@@ -64,7 +64,6 @@ public class OtherUserDAO {
 	public OtherUser getOneUser(String userPhoneNumber) {
 		String sqlquery = "SELECT * FROM studycafe.user WHERE phoneNumber=?;";
 		if(userPhoneNumber==null) {return null;}
-		System.out.println("userPhoneNumber"+userPhoneNumber);
 		OtherUser otherUser = null;
 		try{
 			pstmt = conn.prepareStatement(sqlquery);
@@ -73,7 +72,7 @@ public class OtherUserDAO {
 			if (rs.next()) {
 				otherUser = new OtherUser(rs.getString(1), rs.getString(2), rs.getString(3),
 						rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getTimestamp(7),  rs.getTimestamp(8));
-			}System.out.println(rs.getString(1));
+			}
 			return otherUser;
 	       }catch (SQLException s){
 	    	 System.out.println("SQL statement is not executed!");

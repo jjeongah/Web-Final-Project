@@ -23,6 +23,7 @@
 			script.println("alert('Successfully reserve your locker.')");
 			script.println("history.back()");	
 			script.println("</script>");
+			session.setAttribute("is_user_reserve_locker",true);
 		}else{//database error
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

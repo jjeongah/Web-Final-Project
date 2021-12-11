@@ -40,6 +40,7 @@
 			script.println("alert('Successfully reserve your seat.')");
 			script.println("history.back()");
 			script.println("</script>");
+			session.setAttribute("is_user_reserve_seat",true);
 		}
 	%>
 

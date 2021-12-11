@@ -22,6 +22,7 @@
 			script.println("alert('Successfully return your seat.')");
 			script.println("history.back()");	
 			script.println("</script>");
+			session.setAttribute("is_user_reserve_seat",false);
 		}else{//database error
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

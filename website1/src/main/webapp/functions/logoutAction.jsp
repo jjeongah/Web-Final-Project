@@ -10,6 +10,8 @@
 <body>
 	<%
 		session.setAttribute("phone_number",null);
+		session.setAttribute("is_user_reserve_locker",null);
+		session.setAttribute("is_user_reserve_seat",null);
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("location.href = '../main.jsp'");
