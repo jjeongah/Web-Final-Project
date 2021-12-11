@@ -1,4 +1,4 @@
-/*for reserve.html page */
+/*for reserve.jsp page */
 function logout(){
   location.href = "main.jsp";
 }
@@ -14,66 +14,10 @@ const table_seat5 = document.querySelector('#seat5');
 const table_locker1 = document.querySelector('#locker1');
 const tab_seat = document.querySelector('#tab_seat');
 const tab_locker = document.querySelector('#tab_locker');
+var is_user_reserve_seat = document.querySelector('#is_user_reserve_seat');
+var is_user_reserve_locker = document.querySelector('#is_user_reserve_locker');
 
-
-function renderSeats(start_num, table_seat){
-  table_seat.innerHTML = '';
-  if(start_num<40){//2x5
-    for(var row_num=0;row_num<5;row_num++){
-      const tr = document.createElement('tr');
-      for(var col_num=0;col_num<2;col_num++){
-        const td = document.createElement('td');
-        td.setAttribute('class', 'available');
-        td.setAttribute('data-key', start_num+row_num*2+col_num);
-        td.innerHTML = `${start_num+row_num*2+col_num}`;
-        tr.append(td);
-      }
-      table_seat.append(tr);
-    }
-  }else{//10x1
-    for(var row_num=0;row_num<1;row_num++){
-      const tr = document.createElement('tr');
-      for(var col_num=0;col_num<10;col_num++){
-        const td = document.createElement('td');
-        td.setAttribute('class', 'my');
-        td.setAttribute('data-key', start_num+row_num*10+col_num);
-        td.innerHTML = `${start_num+row_num*10+col_num}`;
-        tr.append(td);
-      }
-      table_seat.append(tr);
-    }
-  }
-}
-
-function renderLockers(){
-  table_locker1.innerHTML = '';
-  for(var row_num=0;row_num<4;row_num++){
-    const tr = document.createElement('tr');
-    for(var col_num=0;col_num<5;col_num++){
-      const td = document.createElement('td');
-      td.setAttribute('class', 'available');
-      // examples
-      if(row_num==1 && col_num==1){
-        td.setAttribute('class', 'my');
-      }
-      if(row_num==3 && col_num==4){
-        td.setAttribute('class', 'occupied');
-      }
-      td.setAttribute('data-key', 1+row_num*5+col_num);
-      td.innerHTML = `${1+ row_num*5+col_num}`;
-      tr.append(td);
-    }
-    table_locker1.append(tr);
-  }
-}
-
-// initialize seat content and locker content
-//renderSeats(1, table_seat1);
-//renderSeats(11, table_seat2);
-//renderSeats(21, table_seat3);
-//renderSeats(31, table_seat4);
-//renderSeats(41, table_seat5);
-//grey_background.hide();
+// initialize popup content to hide
 $('.grey_background').hide();
 $('#locker_content').hide();
 $('#reserve_popup_content').hide();
@@ -106,14 +50,18 @@ function showPopup(content_name, seat_num, todo, type){
   $('.grey_background').show();
   $('#'+content_name).show();
   if(seat_num != null){
-    document.querySelector('.'+content_name+'_title').innerHTML = `${todo} ${seat_num}th ${type}`;
-	console.log(seat_num);
 	if(content_name=='reserve_popup_content'){//click available seat
+		if(is_user_reserve_seat.value=="true"){
+			todo = "Change to";
+		}
 		document.getElementById(content_name+'2_id').value = seat_num;
 		document.getElementById(content_name+'3_id').value = seat_num;
 		document.getElementById(content_name+'4_id').value = seat_num;
 		document.getElementById(content_name+'5_id').value = seat_num;
 	}else if(content_name=='reserve_locker_popup_content'){//click available locker
+		if(is_user_reserve_locker.value=="true"){
+			todo = "Change to";
+		}
 		document.getElementById(content_name+'_id').value = seat_num;
 	}
 	if(todo=="Return" && type=="seat"){
@@ -121,6 +69,7 @@ function showPopup(content_name, seat_num, todo, type){
 	}else if(todo=="Return" && type=="locker"){
 		document.getElementById(content_name+'_title_form').action = "./functions/returnLockerAction.jsp";
 	}
+	document.querySelector('.'+content_name+'_title').innerHTML = `${todo} ${seat_num}th ${type}`;
   }
 }
 

@@ -84,7 +84,7 @@
                   		<input type="text" name="userPhoneNumber"  value="<%= currentuser.getPhoneNumber() %>" style="display:none;">
                   		<button type="submit" name="button">Return Seat</button>
                   	</form>
-                  	<button type="button" name="button" id="extendTime">Extend</button>
+                  	<button type="button" name="button" id="extendTime">Extend Seat</button>
                   </td>
                 </tr>
               </table>

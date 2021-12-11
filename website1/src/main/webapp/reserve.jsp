@@ -35,9 +35,19 @@
 	<%
 		OtherUserDAO otherUserDAO = new OtherUserDAO();
 		List<OtherUser> list = otherUserDAO.getAllUsers();
-		Reserve reserve = new Reserve(list, my_phone_number);//dummy data
+		Reserve reserve = new Reserve(list, my_phone_number);
 	%>
-
+	<%
+		if( reserve.getMyInfo().checkValidSeat()==true ){
+			session.setAttribute("is_user_reserve_seat",true);
+		}
+		if( reserve.getMyInfo().checkValidLocker()==true ){
+			session.setAttribute("is_user_reserve_locker",true);
+		}
+	%>
+	<input id='is_user_reserve_seat' type="hidden" value=<%=session.getAttribute("is_user_reserve_seat") %> />
+	<input id='is_user_reserve_locker' type="hidden" value=<%=session.getAttribute("is_user_reserve_locker") %> />
+	
 	<!-- for grey background -->
     <div class="grey_background">empty</div>
     <!-- header -->
@@ -440,7 +450,7 @@
 
 
     <!-- JS -->
-    <script src="JS/index_reserve.js" type="text/javascript"></script>
+    <script src="JS/index_reserve2.js" type="text/javascript"></script>
 
 </body>
 </html>
