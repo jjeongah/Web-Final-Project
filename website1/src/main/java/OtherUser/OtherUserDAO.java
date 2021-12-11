@@ -42,7 +42,7 @@ public class OtherUserDAO {
 		List<OtherUser> list = new ArrayList<OtherUser>();
 		try{
 	    	 Statement st = conn.prepareStatement(sqlquery);
-	    	 ResultSet rs = st.executeQuery(sqlquery);
+	    	 rs = st.executeQuery(sqlquery);
 	    	 while (rs.next()) {
 	    		OtherUser otherUser = new OtherUser();
 	    		otherUser.setUserName(rs.getString(1));
