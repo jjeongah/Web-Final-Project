@@ -1,4 +1,5 @@
-# Web Programming Lab_SWE3048_43(Tamer) Final Project - SKKU Study Cafe
+# Final Project - SKKU Study Cafe
+This project is for Web Programming Lab _SWE3048_43(Tamer)
 
 ## A Brief Overview
 Our team created the "SKKU Study Cafe" website with login, sign up, seat reservation, pay fee, and manage reservation functions.
