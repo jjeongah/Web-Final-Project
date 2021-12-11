@@ -1,4 +1,4 @@
-/*for join.html page */
+/*for join.htmll page */
 function gotomainpage(){
   location.href = "main.jsp";
 }
@@ -24,6 +24,7 @@ $("#term2").click(function(){
 });
 
 function success(){
+  console.log("success");
   if(document.getElementById("input_name").value =='' && document.getElementById("input_num").value !=''&& document.getElementById("input_pw").value !=''){
     alert("Please enter your name!");
   }
@@ -45,9 +46,6 @@ function success(){
   else if(document.getElementById("input_pw").value =='' && document.getElementById("input_name").value =='' && document.getElementById("input_num").value ==''){
     alert("Please enter your name, password, phone number!");
   }
-  else{
-    console.log("success");
-  }
 
   if(!$('#agree').is(':checked') && $('#agree2').is(':checked')){
     alert("Please consent to use of service!");
@@ -59,13 +57,41 @@ function success(){
     alert("Please consent to use of service and information!");
   }
 
-  let success_ment ="<h1>You have successfully created an account</h1>";
+  /*let success_ment ="<h1>You have successfully created an account</h1>";
   if(name_bool == true && num_bool == true && pw_bool == true && repw_bool == true && $('#agree').is(':checked') &&$('#agree2').is(':checked') ){
     console.log("success!");
     document.querySelector(".service").innerHTML = success_ment;
     document.querySelector(".background").className = "background show";
     document.getElementById('success').style.display = 'block';
+  }*/
+  console.log("name_bool");
+  console.log(name_bool);
+  if(name_bool == false){
+	alert("Your name form is not valid. only contain alphabet. try again!");
   }
+  else if(num_bool == false){
+	alert("Your phone number form is not valid. only contain number. try again!");
+  }
+ else if(pw_bool == false){
+	alert("Your password form is not valid. (at least 6 char, 1 capital letter, 1 lowercase letter, at least 1 digit and 1 special character!)");
+  }
+ else if(repw_bool == false){
+	alert("Please re-enter password correctly!)");
+  }
+/*
+  if(name_bool == false && num_bool == true && pw_bool == true && repw_bool == true){
+	alert("Your name form is not valid. only contain alphabet. try again!");
+  }
+  if(name_bool == true && num_bool == false && pw_bool == true && repw_bool == true){
+	alert("Your phone number form is not valid. only contain number. try again!");
+  }
+ if(name_bool == true && num_bool == true && pw_bool == false&& repw_bool == true){
+	alert("Your password form is not valid. (at least 6 char, 1 capital letter, 1 lowercase letter, at least 1 digit and 1 special character!)");
+  }
+ if(name_bool == true && num_bool == true && pw_bool == true && repw_bool == false){
+	alert("Please re-enter password correctly!)");
+  }
+*/
 }
 
 let last_input;
