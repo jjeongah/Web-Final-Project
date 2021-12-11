@@ -25,6 +25,13 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 
 
 ## Project Schedule
+#### History
+| Goal                           | Dead Line                 | State |
+|--------------------------------|----------------------|--------|
+| Write final project proposal   | ~2021-11-24 | Complete    |
+| CSS designing   | ~2021-11-28 | Complete     |
+| Javascript work   | ~2021-12-2 | Complete     |
+| Backend work   | ~2021-12-11 | Complete     |
 
 #### 김민희:
 | 목표                           | 일정                 | 상태 |
