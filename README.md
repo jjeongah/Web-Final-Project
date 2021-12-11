@@ -23,7 +23,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 > 2. main.html, login.html, join.html javascript development
 > 3. take on the login & join backend work  
 
-##DB
+## DB
 ![db](https://user-images.githubusercontent.com/65378914/145676127-65a12c2e-d111-4dee-b80a-8fdea406982a.png)
 * our team use mysql
 
