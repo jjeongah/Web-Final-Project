@@ -102,6 +102,9 @@ public class OtherUser {
 		return seatStartTime;
 	}
 	public Timestamp getSeatEndTime() {
+		if(seatEndTime==null) {
+			return new Timestamp(System.currentTimeMillis());
+		}
 		return seatEndTime;
 	}
 	public void setSeatStartTime(Timestamp seatStartTime) {
