@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %> <!-- 자바 스크립트 문장을 작성하기 위해 사용-->
-<% request.setCharacterEncoding("UTF-8"); %> <!-- 건너오는 모든 데이터를 UTF-8으로 받을 수 있도록 함 -->
+<%@ page import="java.io.PrintWriter" %> <!-- to write javascript sentence -->
+<% request.setCharacterEncoding("UTF-8"); %> <!-- receive all data UTF-8 -->
 <jsp:useBean id="reservedao" class="reserve.ReserveDAO" scope="page"/>
 <!-- get property from previous page -->
 <jsp:setProperty name="reservedao" property="userPhoneNumber" />

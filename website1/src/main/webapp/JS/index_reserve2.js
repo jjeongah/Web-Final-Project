@@ -6,6 +6,7 @@ function gotomypage(){
   location.href = "mypage.jsp";
 }
 
+
 const table_seat1 = document.querySelector('#seat1');
 const table_seat2 = document.querySelector('#seat2');
 const table_seat3 = document.querySelector('#seat3');
@@ -17,14 +18,16 @@ const tab_locker = document.querySelector('#tab_locker');
 var is_user_reserve_seat = document.querySelector('#is_user_reserve_seat');
 var is_user_reserve_locker = document.querySelector('#is_user_reserve_locker');
 
+
 // initialize popup content to hide
 $('.grey_background').hide();
 $('#locker_content').hide();
 $('#reserve_popup_content').hide();
 $('#return_popup_content').hide();
 $('#reserve_locker_popup_content').hide();
-//renderLockers();
 
+
+//when click tab bar, show content for it and hide other contents
 $('#tab_seat').click(function(){
   $('#tab_seat').addClass('clicked_tab');
   $('#tab_locker').removeClass('clicked_tab');
@@ -43,7 +46,8 @@ $('#tab_locker').click(function(){
   $('#seat_content').hide();
 });
 
-// pop up
+//======popup=======
+//show popup
 function showPopup(content_name, seat_num, todo, type){
   //todo: "Reserve" or "Return"
   //type: "seat" or "locker"
@@ -51,7 +55,7 @@ function showPopup(content_name, seat_num, todo, type){
   $('#'+content_name).show();
   if(seat_num != null){
 	if(content_name=='reserve_popup_content'){//click available seat
-		if(is_user_reserve_seat.value=="true"){
+		if(is_user_reserve_seat.value=="true"){//use "change to" word
 			todo = "Change to";
 		}
 		document.getElementById(content_name+'2_id').value = seat_num;
@@ -59,20 +63,22 @@ function showPopup(content_name, seat_num, todo, type){
 		document.getElementById(content_name+'4_id').value = seat_num;
 		document.getElementById(content_name+'5_id').value = seat_num;
 	}else if(content_name=='reserve_locker_popup_content'){//click available locker
-		if(is_user_reserve_locker.value=="true"){
+		if(is_user_reserve_locker.value=="true"){//use "change to" word
 			todo = "Change to";
 		}
 		document.getElementById(content_name+'_id').value = seat_num;
 	}
-	if(todo=="Return" && type=="seat"){
+	if(todo=="Return" && type=="seat"){//define action(return seat)
 		document.getElementById(content_name+'_title_form').action = "./functions/returnSeatAction.jsp";
-	}else if(todo=="Return" && type=="locker"){
+	}else if(todo=="Return" && type=="locker"){//define action(return locker)
 		document.getElementById(content_name+'_title_form').action = "./functions/returnLockerAction.jsp";
 	}
+	//change title of popup content
 	document.querySelector('.'+content_name+'_title').innerHTML = `${todo} ${seat_num}th ${type}`;
   }
 }
 
+//hide popup
 function hidePopup(content_name){
   $('.grey_background').hide();
   $('#'+content_name).hide();
@@ -105,30 +111,27 @@ document.querySelector('#reserve_locker_popup_content').addEventListener('click'
   }
 });
 
-//click seat
+//click seat -> show popup
 document.querySelector('#seat_content').addEventListener('click', function(event) {
+	//action of popup depends on whether it is my seat or other available seat
   if (event.target.classList.contains('available')) {
     showPopup('reserve_popup_content', event.target.getAttribute('data-key'), "Reserve","seat");
   } else if (event.target.classList.contains('my')) {
     showPopup('return_popup_content', event.target.getAttribute('data-key'), "Return", "seat");
   }else if (event.target.classList.contains('occupied')) {
-
+	//if click seats of other people, do not action
   }
 });
 
-//click locker
+//click locker -> show popup
 document.querySelector('#locker_content').addEventListener('click', function(event) {
+	//action of popup depends on whether it is my locker or other available locker
   if (event.target.classList.contains('available')) {
     showPopup('reserve_locker_popup_content', event.target.getAttribute('data-key'), "Reserve","locker");
   } else if (event.target.classList.contains('my')) {
     showPopup('return_popup_content', event.target.getAttribute('data-key'), "Return", "locker");
   }else if (event.target.classList.contains('occupied')) {
-
+	//if click lockers of other people, do not action
   }
 });
 
-//reserve ##hours
-function reserve_seat_hours(hours){
-  console.log(hours);
-hidePopup('reserve_popup_content');
-}

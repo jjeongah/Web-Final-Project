@@ -9,15 +9,14 @@ import java.util.Set;
 import OtherUser.OtherUser;
 
 public class Reserve {
-	//모든 유저들의 정보를 저장
+	//store all user's information
 	private List<OtherUser> reserveInfo;
+	//store current reserved seats and lockers
 	public Set reserveSeats;
 	public Set reserveLockers;
-	//나의 정보 저장
+	//store current user's information
 	private OtherUser myInfo;
 	public ReserveDAO reserveDAO;
-	private int clickedSeatId=0;
-	private int clickedLockerId=0;
 	
 	public Reserve(List<OtherUser> reserveInfo, String myPhoneNumber) {
 		reserveDAO = new ReserveDAO();
@@ -25,13 +24,14 @@ public class Reserve {
 		reserveSeats = new HashSet<Integer>();
 		reserveLockers = new HashSet<Integer>();
 		for(int i=0;i<reserveInfo.size();i++) {
+			//store only valid seat and locker in set.
 			if(reserveInfo.get(i).checkValidSeat()==true) {
 				reserveSeats.add(reserveInfo.get(i).getSeatId());
 			}if(reserveInfo.get(i).checkValidLocker()==true) {
 				reserveLockers.add(reserveInfo.get(i).getLockerId());
 			}
 		} 
-		//내 전화번호로 내 정보 가져오기
+		//get current user's information with his/her phone number
 		ArrayList infoList = reserveDAO.getMyInfo(myPhoneNumber);
 		myInfo = new OtherUser(infoList.get(0).toString(), infoList.get(1).toString(),
 				infoList.get(2).toString(), (int)(infoList.get(3)),
@@ -47,6 +47,7 @@ public class Reserve {
 		reserveSeats = new HashSet<Integer>();
 		reserveLockers = new HashSet<Integer>();
 		for(int i=0;i<reserveInfo.size();i++) {
+			//store only valid seat and locker in set.
 			if(reserveInfo.get(i).checkValidSeat()==true) {
 				reserveSeats.add(reserveInfo.get(i).getSeatId());
 			}if(reserveInfo.get(i).checkValidLocker()==true) {
@@ -75,22 +76,6 @@ public class Reserve {
 	}
 	public OtherUser getMyInfo(){
 		return myInfo;
-	}
-
-	public int getClickedSeatId() {
-		return clickedSeatId;
-	}
-
-	public void setClickedSeatId(int clickedSeatId) {
-		this.clickedSeatId = clickedSeatId;
-	}
-
-	public int getClickedLockerId() {
-		return clickedLockerId;
-	}
-
-	public void setClickedLockerId(int clickedLockerId) {
-		this.clickedLockerId = clickedLockerId;
 	}
 	
 	

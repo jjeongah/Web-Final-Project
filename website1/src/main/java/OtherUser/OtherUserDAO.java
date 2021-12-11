@@ -19,6 +19,7 @@ public class OtherUserDAO {
 	
 	public OtherUserDAO() {
 		try {
+			//connect with mysql database
 			String dbURL = "jdbc:mysql://localhost:3306/studycafe";
 			String dbID = "root";
 			String dbPassword = "leeja813";
@@ -28,16 +29,9 @@ public class OtherUserDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public void setUserPhoneNumber(String userPhoneNumber) {
-		this.userPhoneNumber = userPhoneNumber;
-	}
-	
-	public String getUserPhoneNumber() {
-		return userPhoneNumber;
-	}
 
 	public List<OtherUser> getAllUsers() {
+		//get all user's information
 		String sqlquery = "SELECT * FROM studycafe.user;";
 		List<OtherUser> list = new ArrayList<OtherUser>();
 		try{
@@ -62,6 +56,7 @@ public class OtherUserDAO {
 	}	
 	
 	public OtherUser getOneUser(String userPhoneNumber) {
+		//get only one user's information with user's phone number
 		String sqlquery = "SELECT * FROM studycafe.user WHERE phoneNumber=?;";
 		if(userPhoneNumber==null) {return null;}
 		OtherUser otherUser = null;
@@ -81,6 +76,7 @@ public class OtherUserDAO {
 	}	
 	
 	public Boolean returnSeat(String userPhoneNumber) {
+		//do "return seat" action with user's phone number
 		String SQL = "UPDATE studycafe.user SET seatId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -94,6 +90,7 @@ public class OtherUserDAO {
 	}
 	
 	public Boolean returnLocker(String userPhoneNumber) {
+		//do "return locker" action with user's phone number
 		String SQL = "UPDATE studycafe.user SET lockerId=0 WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -107,6 +104,7 @@ public class OtherUserDAO {
 	}
 	
 	public Boolean chargeFee(String userPhoneNumber, int userChargedFee) {
+		//do "charge fee" action with user's phone number
 		String SQL = "UPDATE studycafe.user SET chargedFee=chargedFee+? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -118,6 +116,14 @@ public class OtherUserDAO {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public void setUserPhoneNumber(String userPhoneNumber) {
+		this.userPhoneNumber = userPhoneNumber;
+	}
+	
+	public String getUserPhoneNumber() {
+		return userPhoneNumber;
 	}
 
 	public int getUserChargedFee() {

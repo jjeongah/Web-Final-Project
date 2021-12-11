@@ -23,8 +23,10 @@
 	
 	</script>
 	<%
+		//from session, get phone_number of the person who is log in
 		String my_phone_number = (String)session.getAttribute("phone_number");
 		if(my_phone_number==null){
+			//it is not login state
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('Please log in first.')");
@@ -33,23 +35,29 @@
 		}
 	%>
 	<%
+		//make otherUserDAO and reserve object
 		OtherUserDAO otherUserDAO = new OtherUserDAO();
 		List<OtherUser> list = otherUserDAO.getAllUsers();
 		Reserve reserve = new Reserve(list, my_phone_number);
 	%>
 	<%
+		//if user currently reserve seat, make "is_user_reserve_seat value true
 		if( reserve.getMyInfo().checkValidSeat()==true ){
 			session.setAttribute("is_user_reserve_seat",true);
 		}
+		//if user currently reserve locker, make "is_user_reserve_locker value true
 		if( reserve.getMyInfo().checkValidLocker()==true ){
 			session.setAttribute("is_user_reserve_locker",true);
 		}
 	%>
+	<!-- to use these value in javascript file, use hidden input  -->
 	<input id='is_user_reserve_seat' type="hidden" value=<%=session.getAttribute("is_user_reserve_seat") %> />
 	<input id='is_user_reserve_locker' type="hidden" value=<%=session.getAttribute("is_user_reserve_locker") %> />
 	
-	<!-- for grey background -->
+	
+	<!-- for grey background when popup show -->
     <div class="grey_background">empty</div>
+    
     <!-- header -->
     <div class="header">
       <form method="post" action="./functions/logoutAction.jsp" class="btn-4 green_button">
@@ -86,6 +94,7 @@
         <div class="seat_col1">
           <table id="seat1">
           <%
+        //render seats with classification my, available, occupied seats
           for(int row_num=0;row_num<5;row_num++){
         	%>
           		<tr>
@@ -167,7 +176,6 @@
       			<tr>
       		<%
         	  for(int col_num=0;col_num<2;col_num++){
-        
         	  if(reserve.reserveSeats.contains(21+row_num*2+col_num)){
         	 if(reserve.getMyInfo().getSeatId()==21+row_num*2+col_num){
         	 %>
@@ -189,7 +197,6 @@
         	 		</td>
         		<%
         	  	}
-        
     	      }
       		%>
 	  			</tr>
@@ -206,7 +213,6 @@
       			<tr>
       		<%
         	  for(int col_num=0;col_num<2;col_num++){
-        
         	  if(reserve.reserveSeats.contains(31+row_num*2+col_num)){
         		  if(reserve.getMyInfo().getSeatId()==31+row_num*2+col_num){
         	        	 %>
@@ -229,7 +235,6 @@
         	 		</td>
         		<%
         	  	}
-        
     	      }
       		%>
 	  			</tr>
@@ -259,7 +264,6 @@
         		  else{
         	 %>
         	 		<td class="occupied" data-key="<%=41+col_num %>">
-        	 			
         	 			<%=41+col_num %>
         	 		</td>
         	 <%
@@ -267,12 +271,10 @@
         	  }else{
         		%>
         		   <td class="available" data-key="<%=41+col_num %>">
-        	 			
         	 			<%=41+col_num %>
         	 		</td>
         		<%
         	  	}
-        
     	      }
       		%>
 	  			</tr>
@@ -303,6 +305,7 @@
       <div class="">
         <table id="locker1">
         	<%
+        	//render lockers with classification my, available, occupied lockers
           for(int row_num=0;row_num<4;row_num++){
         	%>
     		  <tr>
@@ -356,6 +359,7 @@
       </div>
     </div>
 
+
     <!-- pop up -->
     <div class="reserve_popup_content popup" id="reserve_popup_content">
       <button type="button" class="close_btn close" aria-label="Closename">
@@ -364,6 +368,8 @@
       <span class="reserve_popup_content_title">Reserve 10th seat</span>
       <div class="reserve_popup_grid">
         <form action="./functions/reserveSeatAction.jsp" method="post">
+        <!-- to deliver information of reserving seat, use hidden input -->
+        <!-- if click reserve button, go to reserveSeatAction.jsp -->
         	<input id="reserve_popup_content2_id" type="number" name="reserveSeatId" style="display:none;">
         	<input type="number" name="reserveSeatTimeNumber"  value="<%= 2 %>" style="display:none;">
         	<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
@@ -414,6 +420,7 @@
       </button>
     </div>
 
+
     <div class="return_popup_content popup" id="return_popup_content">
       <button type="button" class="close_btn close" aria-label="Closename">
         <span aria-hidden="true" class="close_btn">&times;</span>
@@ -421,6 +428,7 @@
       <span class="return_popup_content_title">Return 10th seat</span>
       <div class="popup_grid">
       	<form action="./functions/returnSeatAction.jsp" method="post" id="return_popup_content_title_form">
+      	<!-- if click return button, go to returnSeatAction.jsp or returnLockerAction.jsp -->
              <input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
              <button type="submit" class="btn btn-primary return_btn">return</button>
         </form>
@@ -430,6 +438,7 @@
       </div>
     </div>
 
+
     <div class="reserve_locker_popup_content popup" id="reserve_locker_popup_content">
       <button type="button" class="close_btn close" aria-label="Closename">
         <span aria-hidden="true" class="close_btn">&times;</span>
@@ -437,6 +446,7 @@
       <span class="reserve_locker_popup_content_title">Reserve 10th locker</span>
       <div class="popup_grid">
       	<form action="./functions/reserveLockerAction.jsp" method="post">
+      	<!-- if click reserve button, go to reserveLockerAction.jsp -->
       		<input type="text" name="userPhoneNumber"  value="<%= reserve.getMyInfo().getPhoneNumber() %>" style="display:none;">
         	<input id="reserve_locker_popup_content_id" type="number" name="reserveLockerId" style="display:none;">
         	<button type="submit" class="btn btn-primary return_btn">reserve</button>

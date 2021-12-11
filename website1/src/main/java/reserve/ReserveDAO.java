@@ -24,6 +24,7 @@ public class ReserveDAO {
 	private int reserveLockerId;
 	public ReserveDAO() {
 		try {
+			//connect with mysql database
 			String dbURL = "jdbc:mysql://localhost:3306/studycafe";
 			String dbID = "root";
 			String dbPassword = "leeja813";
@@ -34,21 +35,9 @@ public class ReserveDAO {
 		}
 	}
 	
-	public void setReserveSeatId( int reserveSeatId) {
-		this.reserveSeatId = reserveSeatId;
-	}
-	public void setReserveSeatTimeNumber( int reserveSeatTimeNumber) {
-		this.reserveSeatTimeNumber = reserveSeatTimeNumber;
-	}
-	public int getReserveSeatId() {
-		return reserveSeatId;
-	}
-	public int getReserveSeatTimeNumber() {
-		return reserveSeatTimeNumber;
-	}
-	
 	
 	public ArrayList getMyInfo(String userPhoneNumber) {
+		//get current user's information with user's phone number
 		ArrayList infoList = new ArrayList();
 		String SQL = "SELECT * FROM studycafe.user WHERE phoneNumber = ?";
 		try {
@@ -56,14 +45,14 @@ public class ReserveDAO {
 			pstmt.setString(1,  userPhoneNumber);
 			rs = pstmt.executeQuery(); 
 			if (rs.next()) {
-				infoList.add(rs.getString(1));
-				infoList.add(rs.getString(2));
-				infoList.add(rs.getString(3));
-				infoList.add(rs.getInt(4));
-				infoList.add(rs.getInt(5));
-				infoList.add(rs.getInt(6));
-				infoList.add(rs.getTimestamp(7));
-				infoList.add(rs.getTimestamp(8));
+				infoList.add(rs.getString(1));//user name
+				infoList.add(rs.getString(2));//user password
+				infoList.add(rs.getString(3));//phone number
+				infoList.add(rs.getInt(4));//charged fee
+				infoList.add(rs.getInt(5));//seatId
+				infoList.add(rs.getInt(6));//lockerId
+				infoList.add(rs.getTimestamp(7));//seatStartTime
+				infoList.add(rs.getTimestamp(8));//seatEndTime
 			}
 			return infoList;
 		} catch (Exception e) {
@@ -73,16 +62,16 @@ public class ReserveDAO {
 	}
 	
 	public int reserveSeat(String userPhoneNumber,int userChargedFee,int neededFee, int reserveSeatId, int reserveTime) {
+		//do "reserve seat" for current user
+		//if user's charged fee is smaller than needed fee -> error message
 		if(userChargedFee<neededFee) {
 			return -1;
 		}
-		
+		//get current time(seatStartTime)
 		java.util.Date date = new Date();
 		long time = date.getTime();
 		Timestamp start = new Timestamp(time);
-		//여기까지가 Date를 Timestamp로 전환하는 과정
-		 
-		//이제 Timestamp에 계산하기, 3일을 더해보자.
+		//add reserveTime to current time(seatEndTime)
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(start);
 		cal.add(Calendar.HOUR, reserveTime);
@@ -107,6 +96,9 @@ public class ReserveDAO {
 	}
 	
 	public Boolean reserveLocker(String userPhoneNumber, int reserveLockerId) {
+		//do "reserve locker" for current user
+		//it is rent service without paying money
+		//so just record this in database
 		String SQL = "UPDATE studycafe.user SET lockerId=? WHERE (phoneNumber = ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -122,17 +114,22 @@ public class ReserveDAO {
 	
 	public int extendSeat(String userPhoneNumber,int userChargedFee,int neededFee, 
 			int reserveSeatId, int reserveTime, String seatEndTime) {
+		//do "extend seat" for current user
+		//if user's charged fee is smaller than needed fee -> error message
 		if(userChargedFee<neededFee) {
 			return -1;
 		}
+		//will change seatEndTime to new extended end time
 		Timestamp seatEndTimeStamp = null;
 		try {
+			//transform string -> timestamp
 		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
 		    Date parsedDate = dateFormat.parse(seatEndTime);
 		    seatEndTimeStamp = new Timestamp(parsedDate.getTime());
-		} catch(Exception e) { //this generic but you can control another types of exception
-		    // look the origin of exception 
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
+		//add extendtime to original seatEndTime
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(seatEndTimeStamp);
 		cal.add(Calendar.HOUR, reserveTime);
@@ -146,12 +143,24 @@ public class ReserveDAO {
 			pstmt.setInt(2,  userChargedFee-neededFee);
 			pstmt.setString(3,  userPhoneNumber);
 			int i= pstmt.executeUpdate(); 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -2;
 		}
 		return 1;
+	}
+	
+	public void setReserveSeatId( int reserveSeatId) {
+		this.reserveSeatId = reserveSeatId;
+	}
+	public void setReserveSeatTimeNumber( int reserveSeatTimeNumber) {
+		this.reserveSeatTimeNumber = reserveSeatTimeNumber;
+	}
+	public int getReserveSeatId() {
+		return reserveSeatId;
+	}
+	public int getReserveSeatTimeNumber() {
+		return reserveSeatTimeNumber;
 	}
 
 	public String getUserPhoneNumber() {

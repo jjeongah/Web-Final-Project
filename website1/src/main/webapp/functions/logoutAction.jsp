@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %> <!-- 자바 스크립트 문장을 작성하기 위해 사용-->
+<%@ page import="java.io.PrintWriter" %> <!-- to write javascript sentence -->
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="OtherUser.OtherUserDAO" %>
-<%@ page import="java.io.PrintWriter" %> <!-- 자바 스크립트 문장을 작성하기 위해 사용-->
-<% request.setCharacterEncoding("UTF-8"); %> <!-- 건너오는 모든 데이터를 UTF-8으로 받을 수 있도록 함 -->
-<jsp:useBean id="currentuser" class="OtherUser.OtherUser" scope="page"/> <!-- 한명의 회원 정보를 담는 otheruser클래스를 자바 빈즈로 사용-->
+<%@ page import="java.io.PrintWriter" %> <!-- to write javascript sentence -->
+<% request.setCharacterEncoding("UTF-8"); %> <!-- receive all data UTF-8 -->
+<jsp:useBean id="currentuser" class="OtherUser.OtherUser" scope="page"/> <!-- use java bean to use otheruser object-->
 <jsp:setProperty name="currentuser" property="phoneNumber"/>
 
 <!DOCTYPE html>
@@ -23,9 +23,11 @@
     </style>
 	
 	<% 
+		//from session, get phone_number of the person who is log in
 		if(currentuser.getPhoneNumber()==null){
 			String my_phone_number = (String)session.getAttribute("phone_number");
 			if(my_phone_number==null){
+				//it is not login state
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('Please log in first.')");
@@ -74,6 +76,7 @@
       <div class="container">
         <Center><h3>Charge Fee</h3></Center><br><br>
         <form action="./functions/chargeFeeAction.jsp" method="post">
+        <!-- if click charge button, go to chargeFeeAction.jsp  -->
           Bank:&nbsp&nbsp&nbsp&nbsp&nbsp
           <select class="bank" name="">
             <option value="Hana">Hana bank</option>

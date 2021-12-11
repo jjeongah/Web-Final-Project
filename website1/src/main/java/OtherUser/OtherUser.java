@@ -13,9 +13,7 @@ public class OtherUser {
 	private Timestamp seatStartTime;
 	private Timestamp seatEndTime;
 	
-	public OtherUser(){
-		
-	}
+	public OtherUser(){}
 	
 	public OtherUser(String userName, String userPassword, String phoneNumber,
 			int chargedFee, int seatId, int lockerId, Timestamp seatStartTime,  Timestamp seatEndTime) {
@@ -30,6 +28,10 @@ public class OtherUser {
 	}
 	
 	public Boolean checkValidSeat() {
+		//check seat is valid(currently used seat)
+		//if seatId is 0
+		//if seatEndTime is null or before current time
+		//--->it is invalid seat
 		Timestamp currenttimestamp = new Timestamp(System.currentTimeMillis());
 		if(seatId==0) {
 			return false;
@@ -43,12 +45,16 @@ public class OtherUser {
 	}
 	
 	public Boolean checkValidLocker() {
+		//check locker is valid(currently used seat)
+		//if lockerId is 0
+		//--->it is invalid locker
 		if(lockerId==0) {
 			return false;
 		}
 		return true;
 	}
 	
+	//get and set methods
 	public String getuserName() {
 		return userName;
 	}

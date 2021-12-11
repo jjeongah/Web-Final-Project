@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="OtherUser.OtherUserDAO" %>
-<%@ page import="java.io.PrintWriter" %> <!-- 자바 스크립트 문장을 작성하기 위해 사용-->
-<% request.setCharacterEncoding("UTF-8"); %> <!-- 건너오는 모든 데이터를 UTF-8으로 받을 수 있도록 함 -->
-<jsp:useBean id="currentuser" class="OtherUser.OtherUser" scope="page"/> <!-- 한명의 회원 정보를 담는 otheruser클래스를 자바 빈즈로 사용-->
+<%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="currentuser" class="OtherUser.OtherUser" scope="page"/>
 <jsp:setProperty name="currentuser" property="phoneNumber"/>
 
 <!DOCTYPE html>
@@ -21,9 +21,10 @@
   <body>
   
   <% 
+	//from session, get phone_number of the person who is log in
   	if(currentuser.getPhoneNumber()==null){
 		String my_phone_number = (String)session.getAttribute("phone_number");
-		if(my_phone_number==null){
+		if(my_phone_number==null){//not login state
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('Please log in first.')");
@@ -38,6 +39,7 @@
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
+    
     <!-- for grey background -->
     <div class="grey_background">empty</div>
     
@@ -81,6 +83,7 @@
                   <td><%= currentuser.getSeatEndTime().getHours() %>:<%= currentuser.getSeatEndTime().getMinutes() %></td>
                   <td class="nocolor">
                   	<form action="./functions/returnSeatAction.jsp" method="post">
+                  		<!--if click return button, go to returnSeatAction.jsp  -->
                   		<input type="text" name="userPhoneNumber"  value="<%= currentuser.getPhoneNumber() %>" style="display:none;">
                   		<button type="submit" name="button">Return Seat</button>
                   	</form>
@@ -108,6 +111,7 @@
                   <td><%= currentuser.getLockerId() %></td>
                   <td class="nocolor">
                   	<form action="./functions/returnLockerAction.jsp" method="post">
+                  		<!-- if click return button, go to returnLockerAction.jsp  -->
                   		<input type="text" name="userPhoneNumber"  value="<%= currentuser.getPhoneNumber() %>" style="display:none;">
                   		<button type="submit" name="button">Return Locker</button>
                   	</form>
@@ -132,6 +136,8 @@
       <span class="reserve_popup_content_title">Extend time for <%=currentuser.getSeatId() %>th seat</span>
       <div class="reserve_popup_grid">
         <form action="./functions/extendSeatAction.jsp" method="post">
+        	<!-- if click extend button, go to extendSeatAction.jsp  -->
+        	<!-- to send information about extend, use hidden inputs -->
         	<input id="reserve_popup_content1_id" type="number" name="reserveSeatId" style="display:none;">
         	<input type="number" name="reserveSeatTimeNumber"  value="<%= 1 %>" style="display:none;">
         	<input type="text" name="userPhoneNumber"  value="<%= currentuser.getPhoneNumber() %>" style="display:none;">
