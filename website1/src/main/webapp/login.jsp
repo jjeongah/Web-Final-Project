@@ -1,3 +1,4 @@
+<%-- this is a login page of our project --%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -16,12 +17,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
     <div>
-      <div class="card">
+      <div class="card"> <%-- going back button --%>
         <img src=".\img\arrow.png" alt="no_img" onclick="gotomainpage()">
-        <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="gotomainpage()">
+        <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="gotomainpage()"> <%-- check function in index_login.js --%>
       </div>
-      <Center><form method="post" action="loginAction.jsp">
-        <font size="6">Phone number:</font>
+      <Center><form method="post" action="loginAction.jsp"> <%-- check validation of login action --%>
+        <font size="6">Phone number:</font> <%-- enter user information --%>
         <input  id= "input1" type="text" name="phoneNumber"  value=""><br>
         <font size="6">Password        :</font>
         <input id="input2" type="password" name="userPassword" value="">

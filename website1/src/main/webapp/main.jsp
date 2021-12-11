@@ -1,3 +1,7 @@
+<%-- this is a first page of our project --%>
+<%-- 1. show information about study cafe --%>
+<%-- 2. image of study cafe / explore img by arrow button --%>
+<%-- 3. login, create an account button --%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>

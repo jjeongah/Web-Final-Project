@@ -1,8 +1,11 @@
-/*for login.html page */
+/*for login.jsp page */
 function gotomainpage(){
   location.href = "main.jsp";
 }
 
+/*
+User must enter phone number and password
+*/
 function gotoreservepage(){
 console.log(document.getElementById("input1").value);
  if(document.getElementById("input1").value =='' && document.getElementById("input2").value !=''){

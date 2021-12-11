@@ -1,3 +1,4 @@
+<!-- for main.jsp file -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,9 +15,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
     </style>
     <div>
-      <Center><h1 class="name">SKKU study cafe</h1></Center>
+      <Center><h1 class="name">SKKU study cafe</h1></Center> <!-- show name of study cafe -->
       <Center><table>
-      <tr>
+      <tr> <!-- this table is for information -->
       	<td><img class="profile" src=".\img\map.png" alt="no_img">
       	<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 73, Yuljeon-ro 101beon-gil, Jangan-gu, Suwon-si, Gyeonggi-do, Republic of Korea<td>
       <tr>
@@ -26,9 +27,9 @@
       <tr>
       </table>
       
-      <div class="container">
-	      <div class="card">
-	         <img class="img" src=".\img\mainbackarrow_2.png" alt="no_img" onclick="changeimg()">
+      <div class="container"> <!-- this container is for image section -->
+	      <div class="card"> 
+	         <img class="img" src=".\img\mainbackarrow_2.png" alt="no_img" onclick="changeimg()"> <!-- check function in index_main2.js -->
 	         <img class="img-top" src=".\img\mainbackarrow.png" alt="no_img" onclick="changeimg()">
 	      </div>
          <div class="photo">
@@ -40,7 +41,7 @@
 	         <img class="img-top" src=".\img\mainarrow.png" alt="no_img" onclick="changeimg()">
 	      </div> 
       </div>
-      <div class="buttons">
+      <div class="buttons"> <!-- this class for login and sign up button -->
         <Center><button class="btn-1" type="button" name="button" onclick="tologinpage()"><h4>Login</h4></button>
         <Center><button class="btn-1" type="button" name="button" onclick="tojoinpage()"><h4>Create an account</h4></button>
       </div>

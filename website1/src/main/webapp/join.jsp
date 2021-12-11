@@ -1,3 +1,4 @@
+<%-- this is a join page of our project --%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
         <div class="popup">
           <button id="close" class="btn btn-light ">X</button>
             <Center>
-              <div class="service" style="font-size: 10px;">
+              <div class="service" style="font-size: 10px;"><%-- this is a pop up window for the consenst term--%>
                 Article 1 (Purpose)<br>
                 The purpose of these terms and conditions is to stipulate rights, obligations and responsibilities between the company and users in relation to the use of digital contents (hereinafter referred to as "contents") and other services provided by the company online. to do.
                 <br><br> Article 3 (Provision of identity information, etc.) <br>
@@ -38,11 +39,11 @@
 
 
     <div>
-      <div class="card">
+      <div class="card"> 
         <img src=".\img\arrow.png" alt="no_img" onclick="gotomainpage()">
-        <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="gotomainpage()">
+        <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="gotomainpage()"> <%-- go to previous page--%>
       </div>
-      <Center><form method="post" action="joinAction.jsp">
+      <Center><form method="post" action="joinAction.jsp"> <%-- this is forms for information input --%>
         <div class="form_con">
           <font size="5">User name:</font>
           <input name="userName" id= "input_name" type="text" value=""><i id="icon_name" class="bi bi-check-circle-fill"></i><br>
@@ -64,7 +65,7 @@
           <input id= "input_repw" type="password" value=""><i id="icon_repw" class="bi bi-check-circle-fill"></i><br>
         </div>
         <div class="alert_repw" id="alert_repw">Password does not match</div><br>
-      <div class="container">
+      <div class="container">  <%-- this is consent for using service--%>
         <input type="checkbox" id="agree" name="aggree">
         <label for="agree">Consent to use of service</label>
         <h6 id="term1"> View Terms </h6>
