@@ -23,7 +23,9 @@ td{
   text-align: center;
 }
 
-td:hover{
+/*Use td:hover to give Hover effect to seat and locker
+Define the style of each button*/
+td:hover{  
   font-weight: bold;
   background-color: #719e44;
   transition-duration: 200ms;
@@ -115,7 +117,7 @@ td:hover{
   width: 200px;
 }
 
-/* content */
+/* content: Content uses grid display */
 .seat_content, .locker_content{
   margin-top: 50px;
   align-self: center;
