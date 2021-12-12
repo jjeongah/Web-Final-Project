@@ -23,6 +23,8 @@ $("#term2").click(function(){
   document.querySelector(".background").className = "background show";
 });
 
+/* check whether user's input is valid*/
+/* user can't submit a empty form */
 function success(){
   console.log("success");
   if(document.getElementById("input_name").value =='' && document.getElementById("input_num").value !=''&& document.getElementById("input_pw").value !=''){
@@ -102,7 +104,7 @@ let num_bool = false;
 let pw_bool = false;
 let repw_bool = false;
 
-/*check entered value is null*/
+/*check whether form of entered values is correct*/
 $("#input_name").on("propertychange change keyup paste input", function() {
   input = $(this).val();
   last_input = input.charCodeAt(input.length-1);
@@ -130,7 +132,7 @@ $("#input_num").on("propertychange change keyup paste input", function() {
   input = $(this).val();
   last_input = input.charCodeAt(input.length-1);
   //console.log(last_input);
-  if(47<last_input && last_input<58){ /*only alphabet*/
+  if(47<last_input && last_input<58){ /*only number*/
     document.getElementById('icon_num').style.display = 'block';
     document.getElementById('alert_num').style.display = 'none';
     num_bool = true;
@@ -211,6 +213,7 @@ $("#input_pw").on("propertychange change keyup paste input", function() {
   }
 });
 
+/* re-entered password should be same as password entered above*/
 $("#input_repw").on("propertychange change keyup paste input", function() {
   input = $(this).val();
   if($("#input_repw").val() == $("#input_pw").val()){

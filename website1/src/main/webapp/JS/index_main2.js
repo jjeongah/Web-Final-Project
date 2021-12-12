@@ -1,4 +1,5 @@
 /*for main.jsp page */
+//move pages
 function tologinpage(){
   location.href = "login.jsp";
 }
@@ -8,6 +9,7 @@ function tojoinpage(){
 }
 
 /*for image change */
+//when user click arrow button, study cafe's image changes.
 let num = 0;
 function changeimg(){
 	console.log(num);

@@ -39,7 +39,7 @@
 
 
     <div>
-      <div class="card"> 
+      <div class="card"> <%-- All pages have this card class to go to previous page--%>
         <img src=".\img\arrow.png" alt="no_img" onclick="gotomainpage()">
         <img class="img-top" src=".\img\arrow_hover.png" alt="no_img" onclick="gotomainpage()"> <%-- go to previous page--%>
       </div>
