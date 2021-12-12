@@ -1,3 +1,5 @@
+<!-- It is mainly composed of header, tab, seat_content, locker_content, and popups.-->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="reserve.*" %>
