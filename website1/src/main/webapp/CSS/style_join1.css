@@ -24,7 +24,7 @@ img{
 form{
   margin-top: 3%;
   color:white;
-  width: 30%;
+  width: 50%;
 }
 .container{
   margin: 10px;
@@ -42,8 +42,9 @@ h6{
   color:  #aade6a;
 }
 button{
-  width: 200px;
-  height: 60px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 50px;
   background-color: #aade6a;
   border-width: 0.1px;
   border-radius: 10px;

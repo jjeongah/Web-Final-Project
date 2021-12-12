@@ -88,12 +88,12 @@
           </select><br><br>
           <div class="form_con">
             Account number:
-            <input id= "input_num" type="text" value=""><i id="icon_num" class="bi bi-check-circle-fill"></i><br>
+            <input id= "input_num" type="text" value="" input="input1"><i id="icon_num" class="bi bi-check-circle-fill"></i><br>
           </div>
           <div class="alert_num" id="alert_num">Number is invalid</div>
           <div class="form_con">
             Account Password:
-            <input id= "input_pw" type="password" value=""><i id="icon_pw" class="bi bi-check-circle-fill"></i><br>
+            <input id= "input_pw" type="password" value="" name="input2"><i id="icon_pw" class="bi bi-check-circle-fill"></i><br>
           </div>
           <div class="alert_pw" id="alert_pw">Password is invalid</div><br>
           Choose an amount to recharge:
