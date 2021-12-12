@@ -88,7 +88,7 @@
           </select><br><br>
           <div class="form_con">
             Account number:
-            <input id= "input_num" type="text" value="" input="input1"><i id="icon_num" class="bi bi-check-circle-fill"></i><br>
+            <input id= "input_num" type="text" value="" name="input1"><i id="icon_num" class="bi bi-check-circle-fill"></i><br>
           </div>
           <div class="alert_num" id="alert_num">Number is invalid</div>
           <div class="form_con">

@@ -17,6 +17,8 @@
 </head>
 <body>
 	<% 
+	System.out.println(currentuserdao.getInput1());
+	
 		if(currentuserdao.getInput1()==null || currentuserdao.getInput1()=="" 
 		|| currentuserdao.getInput2()==null || currentuserdao.getInput2()==""){
 			//input is blank -> error
