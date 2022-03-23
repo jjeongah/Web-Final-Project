@@ -12,7 +12,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 
 ## Work
 
--   김민희:
+-   Minhee Kim:
 
 > 1. reserve.html page screen development
 > 2. reserve.html, manage.html, fee.html javascript development
@@ -20,7 +20,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 > 4. take on the reservation, fee, manage backend work
 
 
--   이정아:
+-   Jeongah Lee:
 
 > 1. main.html, login.html, join.html, mypage.html, manage.html, fee.html screen development
 > 2. main.html, login.html, join.html javascript development
@@ -40,7 +40,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 | Backend work   | ~2021-12-11 | Complete     |
 
 #### 김민희:
-| 목표                           | 일정                 | 상태 |
+| Goal                           | Dead Line                 | State |
 |--------------------------------|----------------------|--------|
 | 예약/반납/요금충전 기능   | ~2021-12-3 | 완료     |
 | 연장기능_front / back  | ~2021-12-5 | 완료     |
@@ -51,7 +51,7 @@ Our team created the "SKKU Study Cafe" website with login, sign up, seat reserva
 
 
 #### 이정아:
-| 목표                           | 일정                 | 상태 |
+| Goal                           | Dead Line                 | State |
 |--------------------------------|----------------------|--------|
 | 회원가입 백엔드    |~2021-11-30        | 완료       |
 | 로그인 백엔드    |~2021-12-1        | 완료       |
